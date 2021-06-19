@@ -1,0 +1,55 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="BaseActivityTheme" parent="Theme.MaterialComponents">
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:buttonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/material_night_primary</item>
+        <item name="colorPrimary">@color/material_night_primary</item>
+        <item name="colorPrimaryDark">@color/material_night_primary</item>
+        <item name="colorAccent">@color/material_primary</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/material_primary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/md_grey_600</item>
+        <item name="android:textColorHint">@color/md_grey_600</item>
+        <item name="toolbarTitleColor">@android:color/white</item>
+        <item name="android:textSize">?attr/text_size_light</item>
+        <item name="drawerArrowStyle">@style/DrawerIcon</item>
+        <item name="android:colorBackground">@color/material_night_primary</item>
+        <item name="android:windowBackground">@color/material_night_primary</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="alertDialogStyle">@style/AlertDialogStyle</item>
+        <item name="android:listDivider">@color/material_night_dark_blue</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AlertDialogStyle">
+        <item name="android:fullDark">@android:color/black</item>
+        <item name="android:topDark">@android:color/black</item>
+        <item name="android:centerDark">@android:color/black</item>
+        <item name="android:bottomDark">@android:color/black</item>
+        <item name="android:fullBright">@android:color/black</item>
+        <item name="android:topBright">@android:color/black</item>
+        <item name="android:centerBright">@android:color/black</item>
+        <item name="android:bottomBright">@android:color/black</item>
+        <item name="android:bottomMedium">@android:color/black</item>
+        <item name="android:centerMedium">@android:color/black</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:topRightRadius">8dp</item>
+        <item name="android:topLeftRadius">8dp</item>
+        <item name="android:bottomLeftRadius">8dp</item>
+        <item name="android:bottomRightRadius">8dp</item>
+        <item name="android:colorBackground">@color/material_night_primary</item>
+    </style>
+
+</resources>

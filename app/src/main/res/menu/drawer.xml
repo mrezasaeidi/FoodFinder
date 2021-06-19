@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group>
+        <item
+            android:id="@+id/nav_language"
+            android:icon="@drawable/ic_language"
+            android:title="@string/language" />
+        <item
+            android:id="@+id/nav_font_size"
+            android:icon="@drawable/ic_font_size"
+            android:title="@string/font_size" />
+        <item
+            android:id="@+id/nav_night"
+            android:icon="@drawable/ic_night"
+            android:title="@string/night_mode"
+            app:actionViewClass="android.widget.Switch" />
+        <item
+            android:id="@+id/nav_clear_cache"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/clear_cache" />
+    </group>
+
+    <item
+        android:id="@+id/nav_version"
+        android:enabled="false"
+        android:title="@string/version" />
+</menu>
