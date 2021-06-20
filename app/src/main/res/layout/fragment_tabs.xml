@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/rounded_top_24dp"
         android:elevation="8dp"
         app:tabBackground="@drawable/transparent"
         app:tabIndicatorHeight="0dp" />

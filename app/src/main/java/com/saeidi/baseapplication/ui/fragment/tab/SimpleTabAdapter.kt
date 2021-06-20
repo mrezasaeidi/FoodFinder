@@ -2,10 +2,18 @@ package com.saeidi.baseapplication.ui.fragment.tab
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class SimpleTabAdapter(fm: FragmentManager, private val items: Array<Tab>) : TabFragmentAdapter(fm) {
+class SimpleTabAdapter(
+    fragmentManager: FragmentManager,
+    lifecycle: Lifecycle,
+    private val items: List<Tab>
+) : FragmentStateAdapter(
+    fragmentManager, lifecycle
+) {
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return items.size
     }
 
@@ -13,12 +21,11 @@ class SimpleTabAdapter(fm: FragmentManager, private val items: Array<Tab>) : Tab
         return items[position].fragment
     }
 
-    override fun getIcon(position: Int): Int? {
+    fun getIcon(position: Int): Int? {
         return items[position].icon
     }
 
-    override fun getTitle(position: Int): String? {
+    fun getTitle(position: Int): String? {
         return items[position].title
     }
-
 }

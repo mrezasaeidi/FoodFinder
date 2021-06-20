@@ -15,18 +15,18 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.TextViewCompat
-import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayoutMediator
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.ui.fragment.BaseFragment
 import com.saeidi.baseapplication.utils.*
 
 class TabsFragment : BaseFragment() {
     private var tabLayout: TabLayout? = null
-    private var viewPager: ViewPager? = null
-    private var adapter: TabAdapter? = null
+    private var viewPager: ViewPager2? = null
+    private var adapter: SimpleTabAdapter? = null
     private var listener: OnTabSelectedListener? = null
     private var counters: IntArray? = null
     private var withBadge = false
@@ -115,9 +115,9 @@ class TabsFragment : BaseFragment() {
     }
 
 
-    fun setAdapter(adapter: TabAdapter) {
+    fun setAdapter(adapter: SimpleTabAdapter) {
         this.adapter = adapter
-        counters = IntArray(adapter.getCount())
+        counters = IntArray(adapter.itemCount)
         onAdapterChanged()
     }
 
@@ -129,8 +129,10 @@ class TabsFragment : BaseFragment() {
         if (adapter != null && viewPager != null) {
             viewPager?.postDelayed({
                 if (isAdded) {
-                    viewPager?.adapter = adapter as PagerAdapter?
-                    tabLayout!!.setupWithViewPager(viewPager)
+                    viewPager?.adapter = adapter
+                    TabLayoutMediator(tabLayout!!, viewPager!!) { _, _ ->
+                        updateTabs()
+                    }.attach()
                     setTabs()
                 }
             }, 10)
@@ -147,9 +149,9 @@ class TabsFragment : BaseFragment() {
     }
 
     fun updateTabs() {
-        val count = adapter!!.getCount()
+        val count = adapter!!.itemCount
         for (i in 0 until count) {
-            updateTab(i, adapter!!.getTitle(i), adapter!!.getIcon(i))
+            updateTab(i)
         }
     }
 
@@ -179,13 +181,13 @@ class TabsFragment : BaseFragment() {
         }
     }
 
-    private fun updateTab(index: Int, title: String?, icon: Int?) {
+    private fun updateTab(index: Int) {
         if (tabLayout == null) {
             return
         }
         val tab = tabLayout!!.getTabAt(index)
         if (tab != null) {
-            val customView = getCustomView(title, icon)
+            val customView = getCustomView(adapter?.getTitle(index), adapter?.getIcon(index))
             if (customView != null) {
                 val counter: AppCompatTextView? = customView.findViewById(R.id.counter)
                 if (counter != null) {
@@ -208,6 +210,11 @@ class TabsFragment : BaseFragment() {
                     } else {
                         counter.gone()
                     }
+                }
+                customView.alpha = if (viewPager!!.currentItem == index) {
+                    1f
+                } else {
+                    0.7f
                 }
                 tab.customView = customView
             }
@@ -329,7 +336,7 @@ class TabsFragment : BaseFragment() {
         this.withBadge = withBadge
     }
 
-    fun getAdapter(): TabAdapter? {
+    fun getAdapter(): SimpleTabAdapter? {
         return adapter
     }
 }
