@@ -14,7 +14,10 @@ import com.google.android.material.navigation.NavigationView
 import com.saeidi.baseapplication.Application
 import com.saeidi.baseapplication.Constants
 import com.saeidi.baseapplication.R
-import com.saeidi.baseapplication.ui.fragment.RootFragment
+import com.saeidi.baseapplication.ui.fragment.base.tab.SimpleTabAdapter
+import com.saeidi.baseapplication.ui.fragment.base.tab.Tab
+import com.saeidi.baseapplication.ui.fragment.base.tab.TabsFragment
+import com.saeidi.baseapplication.ui.fragment.root.*
 import com.saeidi.baseapplication.utils.LayoutUtil
 import com.saeidi.baseapplication.utils.Style
 import kotlinx.android.synthetic.main.activity_root_layout.*
@@ -42,8 +45,23 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
             setSupportActionBar(toolbar)
         }
         supportActionBar?.elevation = 16f
+        val rootFragment = TabsFragment.create(isBottom = true, isHorizontal = false)
+        rootFragment.setRootFragment(true)
+        val tabs = listOf(
+            Tab(getString(R.string.home), R.drawable.ic_language, HomeFragment()),
+            Tab(getString(R.string.search), R.drawable.ic_language, SearchFragment()),
+            Tab(
+                getString(R.string.what_to_cook),
+                R.drawable.ic_language,
+                FoodDeterminationFragment()
+            ),
+            Tab(getString(R.string.recipes), R.drawable.ic_language, RecipesFragment()),
+            Tab(getString(R.string.profile), R.drawable.ic_language, ProfileFragment())
+        )
+        val tabsAdapter = SimpleTabAdapter(supportFragmentManager, lifecycle, tabs)
+        rootFragment.setAdapter(tabsAdapter)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.root, RootFragment())
+            .replace(R.id.root, rootFragment)
             .commitNow()
 
         ActionBarDrawerToggle(
@@ -92,7 +110,7 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
     }
 
     override fun onBackPressed() {
-        val rootFragment = supportFragmentManager.findFragmentById(R.id.root) as RootFragment?
+        val rootFragment = supportFragmentManager.findFragmentById(R.id.root) as TabsFragment?
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else if (rootFragment != null) {
