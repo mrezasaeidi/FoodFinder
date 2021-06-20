@@ -1,17 +1,17 @@
 package com.saeidi.baseapplication.utils
 
-import android.content.Context
 import android.graphics.Typeface
+import com.saeidi.baseapplication.AndroidContext
 import java.util.*
 
 object Fonts {
     private val typefaces = HashMap<String, Typeface>()
-    private fun load(context: Context, name: String): Typeface {
+    private fun load(name: String): Typeface {
         if (typefaces.containsKey(name)) {
             return typefaces[name]!!
         }
         val typeface = Typeface.createFromAsset(
-            context.assets,
+            AndroidContext.context.assets,
             "vazir$name.ttf"
         )
         if (typeface != null) {
@@ -20,27 +20,27 @@ object Fonts {
         return typeface
     }
 
-    fun bold(context: Context): Typeface {
-        return load(context, "Bold")
+    fun bold(): Typeface {
+        return load("Bold")
     }
 
-    fun black(context: Context): Typeface {
-        return load(context, "Black")
+    fun black(): Typeface {
+        return load("Black")
     }
 
-    fun medium(context: Context): Typeface {
-        return load(context, "Medium")
+    fun medium(): Typeface {
+        return load("Medium")
     }
 
-    fun regular(context: Context): Typeface {
-        return load(context, "")
+    fun regular(): Typeface {
+        return load("")
     }
 
-    fun light(context: Context): Typeface {
-        return load(context, "Light")
+    fun light(): Typeface {
+        return load("Light")
     }
 
-    fun thin(context: Context): Typeface {
-        return load(context, "Thin")
+    fun thin(): Typeface {
+        return load( "Thin")
     }
 }

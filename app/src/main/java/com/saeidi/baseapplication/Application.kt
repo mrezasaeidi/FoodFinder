@@ -29,6 +29,7 @@ class Application : Application(), ActivityLifecycleCallbacks {
 
     override fun onCreate() {
         super.onCreate()
+        AndroidContext.context = this
         registerActivityLifecycleCallbacks(this)
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         overrideFont()

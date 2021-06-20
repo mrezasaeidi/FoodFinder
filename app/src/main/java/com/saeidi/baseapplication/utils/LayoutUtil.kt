@@ -11,7 +11,7 @@ import java.util.*
 object LayoutUtil {
 
     private lateinit var locale: String
-    private var rtl = false
+    var rtl = false
     private var lang = Lang.FA
 
     fun init(context: Context) {
@@ -30,6 +30,10 @@ object LayoutUtil {
 
     fun getLanguage(): Lang {
         return lang
+    }
+
+    fun formatNumber(value: Int): String {
+        return NumberFormatting.toLocale(value.toString(), locale)
     }
 
     fun formatNumber(value: String): String {
@@ -101,10 +105,5 @@ object LayoutUtil {
         df.maximumFractionDigits = 0
         df.roundingMode = RoundingMode.FLOOR
         return df.format(price)
-    }
-
-    fun dp(context: Context, dp: Float): Int {
-        val density = context.resources.displayMetrics.density
-        return (dp * density + .5f).toInt()
     }
 }
