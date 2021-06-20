@@ -20,6 +20,14 @@ object Fonts {
         return typeface
     }
 
+    fun extraBold(): Typeface? {
+        return load("ExtraBold")
+    }
+
+    fun extraBlack(): Typeface? {
+        return load("ExtraBlack")
+    }
+
     fun bold(): Typeface {
         return load("Bold")
     }
@@ -41,6 +49,6 @@ object Fonts {
     }
 
     fun thin(): Typeface {
-        return load( "Thin")
+        return load("Thin")
     }
 }

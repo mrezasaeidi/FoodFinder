@@ -4,10 +4,12 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import com.saeidi.baseapplication.Constants
 import com.saeidi.baseapplication.R
+import com.saeidi.baseapplication.utils.Fonts
+import com.saeidi.baseapplication.utils.Runtime
+import kotlinx.android.synthetic.main.splash_activity.*
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +20,11 @@ class SplashActivity : BaseActivity() {
         }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_activity)
-        Handler().postDelayed({
+        splashTitleTV.apply {
+            setTextColor(Color.BLACK)
+            typeface = Fonts.extraBold()
+        }
+        Runtime.postDelayedToMainThread({
             startActivity(Intent(this, RootActivity::class.java))
             finish()
         }, Constants.SPLASH_TIME_OUT)
