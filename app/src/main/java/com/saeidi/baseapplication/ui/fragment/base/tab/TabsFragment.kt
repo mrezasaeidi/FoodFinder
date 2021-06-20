@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.appcompat.widget.AppCompatImageView
@@ -23,7 +24,7 @@ import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.ui.fragment.base.BaseFragment
 import com.saeidi.baseapplication.utils.*
 
-class TabsFragment : BaseFragment() {
+class TabsFragment : BaseFragment(), OnTabSelectedListener {
     private var tabLayout: TabLayout? = null
     private var viewPager: ViewPager2? = null
     private var adapter: SimpleTabAdapter? = null
@@ -31,6 +32,7 @@ class TabsFragment : BaseFragment() {
     private var counters: IntArray? = null
     private var withBadge = false
     private var defaultTab = 0
+    private var isHorizontal = true
 
     @ColorRes
     private var textIconColor = 0
@@ -41,6 +43,7 @@ class TabsFragment : BaseFragment() {
             @ColorRes textIconColor: Int = 0,
             scrollable: Boolean = false,
             isBottom: Boolean = false,
+            isHorizontal: Boolean = true,
             defaultTab: Int = 0,
             offPageLimit: Int = 3
         ): TabsFragment {
@@ -49,6 +52,7 @@ class TabsFragment : BaseFragment() {
             args.putInt("textIconColor", textIconColor)
             args.putBoolean("scrollable", scrollable)
             args.putBoolean("isBottom", isBottom)
+            args.putBoolean("isHorizontal", isHorizontal)
             args.putInt("defaultTab", defaultTab)
             args.putInt("offPageLimit", offPageLimit)
             fragment.arguments = args
@@ -66,12 +70,14 @@ class TabsFragment : BaseFragment() {
         if (arguments == null) {
             arguments = Bundle()
         }
-        res = if (arguments.getBoolean("isBottom", true)) {
-            inflater.inflate(R.layout.fragment_tabs_top, container, false)
-        } else {
+        isHorizontal = arguments.getBoolean("isHorizontal", true)
+        res = if (arguments.getBoolean("isBottom", false)) {
             inflater.inflate(R.layout.fragment_tabs, container, false)
+        } else {
+            inflater.inflate(R.layout.fragment_tabs_top, container, false)
         }
         tabLayout = res.findViewById(R.id.tab_layout)
+        tabLayout?.addOnTabSelectedListener(this)
         if (listener != null) {
             tabLayout?.addOnTabSelectedListener(listener!!)
         }
@@ -89,7 +95,6 @@ class TabsFragment : BaseFragment() {
         return res
     }
 
-
     fun setAdapter(adapter: SimpleTabAdapter) {
         this.adapter = adapter
         counters = IntArray(adapter.itemCount)
@@ -106,7 +111,7 @@ class TabsFragment : BaseFragment() {
                 if (isAdded) {
                     viewPager?.adapter = adapter
                     TabLayoutMediator(tabLayout!!, viewPager!!) { _, _ ->
-                        updateTabs()
+
                     }.attach()
                     setTabs()
                 }
@@ -115,21 +120,20 @@ class TabsFragment : BaseFragment() {
     }
 
     private fun setTabs() {
-        updateTabs()
+        val count = adapter!!.itemCount
+        for (i in 0 until count) {
+            setTab(i, adapter!!.getTitle(i), adapter!!.getIcon(i))
+        }
+        if (defaultTab > count - 1) {
+            defaultTab = 0
+        }
         viewPager?.currentItem = defaultTab
+        tabLayout?.getTabAt(defaultTab)?.let { updateTab(it, true) }
     }
 
     fun onTabSelected(listener: OnTabSelectedListener?) {
         this.listener = listener
     }
-
-    fun updateTabs() {
-        val count = adapter!!.itemCount
-        for (i in 0 until count) {
-            updateTab(i)
-        }
-    }
-
 
     fun updateCounter(index: Int, counter: Int) {
         if (counters != null) {
@@ -156,13 +160,26 @@ class TabsFragment : BaseFragment() {
         }
     }
 
-    private fun updateTab(index: Int) {
-        if (tabLayout == null) {
-            return
+    private fun updateTab(tab: TabLayout.Tab, isSelected: Boolean) {
+        tab.customView?.apply {
+            val icon = findViewById<ImageView>(R.id.icon)
+            val title = findViewById<TextView>(R.id.title)
+
+            val color = if (isSelected) {
+                Style.getAccentColor(context)
+            } else {
+                context.getColorCompat(R.color.grey_500)
+            }
+            ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(color))
+            title.setTextColor(color)
+            TextViewCompat.setCompoundDrawableTintList(title, ColorStateList.valueOf(color))
         }
-        val tab = tabLayout!!.getTabAt(index)
+    }
+
+    private fun setTab(index: Int, title: String?, icon: Int?) {
+        val tab = tabLayout?.getTabAt(index)
         if (tab != null) {
-            val customView = getCustomView(adapter?.getTitle(index), adapter?.getIcon(index))
+            val customView = getCustomView(title, icon)
             if (customView != null) {
                 val counter: AppCompatTextView? = customView.findViewById(R.id.counter)
                 if (counter != null) {
@@ -186,13 +203,9 @@ class TabsFragment : BaseFragment() {
                         counter.gone()
                     }
                 }
-                customView.alpha = if (viewPager!!.currentItem == index) {
-                    1f
-                } else {
-                    0.7f
-                }
                 tab.customView = customView
             }
+            updateTab(tab, false)
         }
     }
 
@@ -204,39 +217,47 @@ class TabsFragment : BaseFragment() {
         val parentLayoutParams =
             ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Screen.dp(48f))
         customView.layoutParams = parentLayoutParams
-        val counterTV = AppCompatTextView(requireContext())
-        counterTV.id = R.id.counter
-        counterTV.gravity = Gravity.CENTER
-        counterTV.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        counterTV.textDirection = View.TEXT_DIRECTION_LTR
-        counterTV.textSize = Style.getTextSizeUltralight(requireContext())
-        counterTV.typeface = Fonts.regular()
-        counterTV.background = Style.getAccentRectangle18dp(requireContext())
-        counterTV.setTextColor(Color.WHITE)
+        val counterTV = AppCompatTextView(requireContext()).apply {
+            id = R.id.counter
+            gravity = Gravity.CENTER
+            textAlignment = View.TEXT_ALIGNMENT_CENTER
+            textDirection = View.TEXT_DIRECTION_LTR
+            textSize = Style.getTextSizeUltralight(requireContext())
+            typeface = Fonts.regular()
+            background = Style.getAccentRectangle18dp(requireContext())
+            setTextColor(Color.WHITE)
+        }
         customView.addView(counterTV)
-        val titleTV = AppCompatTextView(requireContext())
-        titleTV.id = R.id.title
-        titleTV.gravity = Gravity.CENTER
-        titleTV.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        titleTV.textSize = Style.getTextSizeUltralight(requireContext())
-        titleTV.typeface = Fonts.regular()
+        val titleTV = AppCompatTextView(requireContext()).apply {
+            id = R.id.title
+            gravity = Gravity.CENTER
+            textAlignment = View.TEXT_ALIGNMENT_CENTER
+            textSize = Style.getTextSizeUltralight(requireContext())
+            typeface = Fonts.regular()
+        }
         if (textIconColor != 0) {
             titleTV.setTextColor(ContextCompat.getColor(requireContext(), textIconColor))
         }
         customView.addView(titleTV)
-        val iconIV = AppCompatImageView(requireContext())
-        iconIV.id = R.id.icon
+        val iconIV = AppCompatImageView(requireContext()).apply {
+            id = R.id.icon
+        }
         customView.addView(iconIV)
+
         val hasTitle: Boolean = !title.isNullOrEmpty()
         if (hasTitle) {
             titleTV.text = title
             titleTV.visible()
             iconIV.gone()
             if (icon != null) {
-                if (LayoutUtil.rtl) {
-                    titleTV.setCompoundDrawablesWithIntrinsicBounds(0, 0, icon, 0)
+                if (isHorizontal) {
+                    if (LayoutUtil.rtl) {
+                        titleTV.setCompoundDrawablesWithIntrinsicBounds(0, 0, icon, 0)
+                    } else {
+                        titleTV.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
+                    }
                 } else {
-                    titleTV.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0)
+                    titleTV.setCompoundDrawablesWithIntrinsicBounds(0, icon, 0, 0)
                 }
                 if (textIconColor != 0) {
                     TextViewCompat.setCompoundDrawableTintList(
@@ -314,4 +335,14 @@ class TabsFragment : BaseFragment() {
     fun getAdapter(): SimpleTabAdapter? {
         return adapter
     }
+
+    override fun onTabSelected(tab: TabLayout.Tab) {
+        updateTab(tab, true)
+    }
+
+    override fun onTabUnselected(tab: TabLayout.Tab) {
+        updateTab(tab, false)
+    }
+
+    override fun onTabReselected(tab: TabLayout.Tab?) {}
 }
