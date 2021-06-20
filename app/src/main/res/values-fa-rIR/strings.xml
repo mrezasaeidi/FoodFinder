@@ -15,6 +15,11 @@
     <string name="home">خانه</string>
     <string name="search">جست‌وجو</string>
     <string name="what_to_cook">چی‌بپزم</string>
+    <string name="what_to_cook_hint">مواد اولیه‌ی در دسترست رو وارد کن تا ما بهت بگیم چی بپزی :)</string>
     <string name="recipes">دستور پخت</string>
-    <string name="profile">حساب کاربری</string>
+    <string name="profile">پروفایل</string>
+    <string name="food_select_material">انتخاب مواد اولیه</string>
+    <string name="food_select_time">تعیین زمان پخت</string>
+    <string name="food_select_calorie">تعیین مقدار کالری</string>
+    <string name="find_food">جست‌وجوی غذا</string>
 </resources>

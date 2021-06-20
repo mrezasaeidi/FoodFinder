@@ -9,4 +9,8 @@
         <attr name="text_size_medium" format="dimension" />
         <attr name="text_size_bold" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="BaseActivityTheme">
+        <attr name="secondaryColor" format="color" />
+    </declare-styleable>
 </resources>

@@ -12,7 +12,7 @@ object Fonts {
         }
         val typeface = Typeface.createFromAsset(
             AndroidContext.context.assets,
-            "vazir$name.ttf"
+            "IRANYekanMobile$name.ttf"
         )
         if (typeface != null) {
             typefaces[name] = typeface
@@ -33,7 +33,7 @@ object Fonts {
     }
 
     fun regular(): Typeface {
-        return load("")
+        return load("Regular")
     }
 
     fun light(): Typeface {

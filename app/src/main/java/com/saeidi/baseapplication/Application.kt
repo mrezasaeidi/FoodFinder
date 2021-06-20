@@ -50,7 +50,7 @@ class Application : Application(), ActivityLifecycleCallbacks {
                 .addInterceptor(
                     CalligraphyInterceptor(
                         CalligraphyConfig.Builder()
-                            .setDefaultFontPath("vazir.ttf")
+                            .setDefaultFontPath("IRANYekanMobileRegular.ttf")
                             .setFontAttrId(R.attr.fontPath)
                             .build()
                     )

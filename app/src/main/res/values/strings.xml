@@ -18,6 +18,11 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="what_to_cook">What to cook</string>
+    <string name="what_to_cook_hint">Enter the available material so we can tell you what to cook :)</string>
     <string name="recipes">Recipes</string>
     <string name="profile">Profile</string>
+    <string name="food_select_material">Select Material</string>
+    <string name="food_select_time">Cooking Time</string>
+    <string name="food_select_calorie">Calorie</string>
+    <string name="find_food">Find Food</string>
 </resources>
