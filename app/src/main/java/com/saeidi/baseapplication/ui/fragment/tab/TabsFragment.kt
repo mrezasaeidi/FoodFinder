@@ -36,46 +36,21 @@ class TabsFragment : BaseFragment() {
     private var textIconColor = 0
 
     companion object {
-        private const val DEFAULT_TAB = "defaultTab"
-
-        fun create(scrollable: Boolean, isTop: Boolean, offPageLimit: Int): TabsFragment {
-            val fragment = TabsFragment()
-            val args = Bundle()
-            args.putBoolean("scrollable", scrollable)
-            args.putBoolean("isTop", isTop)
-            args.putInt("offPageLimit", offPageLimit)
-            fragment.arguments = args
-            return fragment
-        }
-
-        fun create(scrollable: Boolean, isTop: Boolean): TabsFragment {
-            val fragment = TabsFragment()
-            val args = Bundle()
-            args.putBoolean("scrollable", scrollable)
-            args.putBoolean("isTop", isTop)
-            fragment.arguments = args
-            return fragment
-        }
 
         fun create(
-            @ColorRes textIconColor: Int,
-            scrollable: Boolean,
-            isTop: Boolean
+            @ColorRes textIconColor: Int = 0,
+            scrollable: Boolean = false,
+            isBottom: Boolean = false,
+            defaultTab: Int = 0,
+            offPageLimit: Int = 3
         ): TabsFragment {
             val fragment = TabsFragment()
             val args = Bundle()
             args.putInt("textIconColor", textIconColor)
             args.putBoolean("scrollable", scrollable)
-            args.putBoolean("isTop", isTop)
-            fragment.arguments = args
-            return fragment
-        }
-
-        fun create(scrollable: Boolean, defaultTab: Int): TabsFragment {
-            val fragment = TabsFragment()
-            val args = Bundle()
-            args.putBoolean("scrollable", scrollable)
-            args.putInt(DEFAULT_TAB, defaultTab)
+            args.putBoolean("isBottom", isBottom)
+            args.putInt("defaultTab", defaultTab)
+            args.putInt("offPageLimit", offPageLimit)
             fragment.arguments = args
             return fragment
         }
@@ -91,7 +66,7 @@ class TabsFragment : BaseFragment() {
         if (arguments == null) {
             arguments = Bundle()
         }
-        res = if (arguments.getBoolean("isTop", true)) {
+        res = if (arguments.getBoolean("isBottom", true)) {
             inflater.inflate(R.layout.fragment_tabs_top, container, false)
         } else {
             inflater.inflate(R.layout.fragment_tabs, container, false)
@@ -106,7 +81,7 @@ class TabsFragment : BaseFragment() {
             tabLayout?.tabMode = TabLayout.MODE_FIXED
             tabLayout?.tabGravity = TabLayout.GRAVITY_FILL
         }
-        defaultTab = arguments.getInt(DEFAULT_TAB, 0)
+        defaultTab = arguments.getInt("defaultTab", 0)
         textIconColor = arguments.getInt("textIconColor", 0)
         viewPager = res.findViewById(R.id.pager)
         viewPager?.offscreenPageLimit = arguments.getInt("offPageLimit", 3)
