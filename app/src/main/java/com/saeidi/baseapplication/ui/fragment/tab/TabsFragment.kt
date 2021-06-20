@@ -164,9 +164,9 @@ class TabsFragment : BaseFragment() {
                 val txtCounter = tab.customView!!.findViewById<TextView>(R.id.counter)
                 if (txtCounter != null) {
                     if (counter > 0) {
-                        txtCounter.visibility = View.VISIBLE
+                        txtCounter.visible()
                     } else {
-                        txtCounter.visibility = View.GONE
+                        txtCounter.gone()
                     }
                     if (counter < 999) {
                         txtCounter.text = LayoutUtil.formatNumber(counter)
@@ -248,8 +248,8 @@ class TabsFragment : BaseFragment() {
         val hasTitle: Boolean = !title.isNullOrEmpty()
         if (hasTitle) {
             titleTV.text = title
-            titleTV.visibility = View.VISIBLE
-            iconIV.visibility = View.GONE
+            titleTV.visible()
+            iconIV.gone()
             if (icon != null) {
                 if (LayoutUtil.rtl) {
                     titleTV.setCompoundDrawablesWithIntrinsicBounds(0, 0, icon, 0)
@@ -293,8 +293,8 @@ class TabsFragment : BaseFragment() {
             }
             titleTV.layoutParams = layoutParams
         } else if (icon != null) {
-            iconIV.visibility = View.VISIBLE
-            titleTV.visibility = View.GONE
+            iconIV.visible()
+            titleTV.gone()
             iconIV.setImageResource(icon)
             if (textIconColor != 0) {
                 ImageViewCompat.setImageTintList(
