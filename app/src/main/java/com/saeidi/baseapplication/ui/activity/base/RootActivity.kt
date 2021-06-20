@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.activity
+package com.saeidi.baseapplication.ui.activity.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

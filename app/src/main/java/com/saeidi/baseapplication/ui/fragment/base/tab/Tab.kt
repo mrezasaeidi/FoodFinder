@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.fragment.tab
+package com.saeidi.baseapplication.ui.fragment.base.tab
 
 import androidx.fragment.app.Fragment
 

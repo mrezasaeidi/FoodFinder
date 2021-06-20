@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.activity
+package com.saeidi.baseapplication.ui.activity.base
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.saeidi.baseapplication.R
-import com.saeidi.baseapplication.ui.fragment.BaseFragment
+import com.saeidi.baseapplication.ui.fragment.base.BaseFragment
 import com.saeidi.baseapplication.utils.KeyboardHelper
 
 open class BaseFragmentActivity : BaseActivity() {

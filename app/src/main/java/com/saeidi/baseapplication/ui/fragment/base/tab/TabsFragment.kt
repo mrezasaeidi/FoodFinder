@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.fragment.tab
+package com.saeidi.baseapplication.ui.fragment.base.tab
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -20,7 +20,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.saeidi.baseapplication.R
-import com.saeidi.baseapplication.ui.fragment.BaseFragment
+import com.saeidi.baseapplication.ui.fragment.base.BaseFragment
 import com.saeidi.baseapplication.utils.*
 
 class TabsFragment : BaseFragment() {

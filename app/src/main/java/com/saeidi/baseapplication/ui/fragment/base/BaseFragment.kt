@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.fragment
+package com.saeidi.baseapplication.ui.fragment.base
 
 import android.graphics.Color
 import android.os.Bundle

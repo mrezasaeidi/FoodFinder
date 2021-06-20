@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.activity
+package com.saeidi.baseapplication.ui.activity.base
 
 import android.content.Context
 import android.content.res.Configuration

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/BaseActivityTheme">
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".ui.activity.base.SplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
             android:theme="@style/BaseActivityTheme.NoActionBar"
@@ -25,13 +25,13 @@
         </activity>
 
         <activity
-            android:name=".ui.activity.RootActivity"
+            android:name=".ui.activity.base.RootActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:theme="@style/RootActivityTheme"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.activity.RouterActivity"
+            android:name=".ui.activity.base.RouterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:theme="@style/BaseActivityTheme"
             android:windowSoftInputMode="adjustResize" />

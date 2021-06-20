@@ -2,7 +2,7 @@ package com.saeidi.baseapplication.utils
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.saeidi.baseapplication.ui.activity.RouterActivity
+import com.saeidi.baseapplication.ui.activity.base.RouterActivity
 
 object Intents {
 

@@ -16,7 +16,7 @@ import com.saeidi.baseapplication.Constants.CONFIG_PREF_FONT_SIZE
 import com.saeidi.baseapplication.Constants.CONFIG_PREF_LANG
 import com.saeidi.baseapplication.Constants.CONFIG_PREF_NAME
 import com.saeidi.baseapplication.Constants.CONFIG_PREF_NIGHT_MODE
-import com.saeidi.baseapplication.ui.activity.RootActivity
+import com.saeidi.baseapplication.ui.activity.base.RootActivity
 import com.saeidi.baseapplication.utils.LayoutUtil
 import com.saeidi.baseapplication.utils.Style
 import io.github.inflationx.calligraphy3.CalligraphyConfig
