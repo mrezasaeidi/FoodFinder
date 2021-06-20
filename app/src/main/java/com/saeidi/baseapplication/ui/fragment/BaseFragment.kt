@@ -95,10 +95,10 @@ open class BaseFragment : Fragment() {
 
     fun onConfigureActionBar(actionBar: ActionBar?) {}
 
-    open fun toast(text: String?) {
+    open fun snack(text: String) {
         try {
             if (view != null) {
-                val snackBar = Snackbar.make(requireView(), text!!, Snackbar.LENGTH_SHORT)
+                val snackBar = Snackbar.make(requireView(), text, Snackbar.LENGTH_SHORT)
                 val tv = snackBar.view.findViewById<TextView>(R.id.snackbar_text)
                 tv.setTextColor(Color.WHITE)
                 snackBar.show()
@@ -107,14 +107,14 @@ open class BaseFragment : Fragment() {
         }
     }
 
-    open fun toast(textResId: Int) {
-        toast(getString(textResId))
+    open fun snack(textResId: Int) {
+        snack(getString(textResId))
     }
 
-    open fun toastLong(text: String?) {
+    open fun snackLong(text: String) {
         try {
             if (view != null) {
-                val snackBar = Snackbar.make(requireView(), text!!, Snackbar.LENGTH_LONG)
+                val snackBar = Snackbar.make(requireView(), text, Snackbar.LENGTH_LONG)
                 val tv = snackBar.view.findViewById<TextView>(R.id.snackbar_text)
                 tv.setTextColor(Color.WHITE)
                 snackBar.show()
@@ -123,9 +123,9 @@ open class BaseFragment : Fragment() {
         }
     }
 
-    open fun toastLong(textResId: Int) {
+    open fun snackLong(textResId: Int) {
         try {
-            toastLong(getString(textResId))
+            snackLong(getString(textResId))
         } catch (ignored: Exception) {
         }
     }
