@@ -33,6 +33,7 @@
     <string name="time_formatter" formatted="true">From %s Minutes To %s Minutes</string>
     <string name="calorie">Calorie</string>
     <string name="calorie_formatter" formatted="true">From %s Calorie To %s Calorie</string>
+    <string name="implement_in_future" formatted="true">This Section Will Be Implement In Future</string>
     <string-array name="materials">
         <item>آرد</item>
         <item>آرد برنج</item>

@@ -46,6 +46,20 @@ abstract class LocalDatabase : RoomDatabase() {
 object FoodTypeConvertor {
     @TypeConverter
     @JvmStatic
+    fun photoArrayToString(photoArray: List<String>): String? = Gson().toJson(photoArray)
+
+    @TypeConverter
+    @JvmStatic
+    fun photoStringToArray(photoJson: String?): List<String> {
+        return if (photoJson == null || photoJson == "null") {
+            emptyList()
+        } else {
+            Gson().fromJson(photoJson, object : TypeToken<List<String>>() {}.type)
+        }
+    }
+
+    @TypeConverter
+    @JvmStatic
     fun recipeArrayToString(recipeSteps: List<RecipeStep>): String? = Gson().toJson(recipeSteps)
 
     @TypeConverter

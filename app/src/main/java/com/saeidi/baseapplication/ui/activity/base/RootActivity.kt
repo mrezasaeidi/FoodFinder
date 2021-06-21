@@ -48,9 +48,10 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
         }
         supportActionBar?.elevation = 16f
         val rootFragment =
-            TabsFragment.create(isBottom = true, isHorizontal = false, defaultTab = 1)
+            TabsFragment.create(isBottom = true, isHorizontal = false)
         rootFragment.setRootFragment(true)
         val tabs = listOf(
+            Tab(getString(R.string.home), R.drawable.ic_home, HomeFragment()),
             Tab(getString(R.string.search), R.drawable.ic_search_cute, SearchFragment()),
             Tab(
                 getString(R.string.what_to_cook),
