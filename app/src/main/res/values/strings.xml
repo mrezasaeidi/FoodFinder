@@ -37,6 +37,8 @@
     <string name="sort_new">The Newest</string>
     <string name="sort_best_week">The Best Of The Week</string>
     <string name="sort_best_user">The Best Of The Users</string>
+    <string name="search_empty_result">No Foods Found</string>
+    <string name="search_hint">Write Something To Find</string>
     <string-array name="materials">
         <item>آرد</item>
         <item>آرد برنج</item>

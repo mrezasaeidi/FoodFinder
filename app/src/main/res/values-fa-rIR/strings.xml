@@ -34,6 +34,8 @@
     <string name="sort_new">جدیدترین</string>
     <string name="sort_best_week">بهترین‌های هفته</string>
     <string name="sort_best_user">بعترین کاربران</string>
+    <string name="search_empty_result">هیچ غذایی یافت نشد</string>
+    <string name="search_hint">چیزی بنویسید تا جست‌وجو کنیم</string>
     <string-array name="materials">
         <item>آرد</item>
         <item>آرد برنج</item>

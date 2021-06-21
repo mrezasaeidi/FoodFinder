@@ -16,4 +16,12 @@ class FoodViewModel(application: Application) : AndroidViewModel(application) {
     fun getCategoryFoodsLive(categoryId: Int): LiveData<List<FoodModel>> {
         return foodDao.getCategoryFoodsLive(categoryId)
     }
+
+    fun getFoodsByNameLive(name: String): LiveData<List<FoodModel>> {
+        return foodDao.getFoodsByNameLive(name)
+    }
+
+    suspend fun getFoodsByName(name: String): List<FoodModel> {
+        return foodDao.getFoodsByName(name)
+    }
 }

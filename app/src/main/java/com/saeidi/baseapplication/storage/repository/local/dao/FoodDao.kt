@@ -23,4 +23,10 @@ interface FoodDao {
 
     @Query("SELECT * FROM food WHERE categoryId=:categoryId")
     fun getCategoryFoodsLive(categoryId: Int): LiveData<List<FoodModel>>
+
+    @Query("SELECT * FROM food WHERE name LIKE '%' || :name || '%'")
+    fun getFoodsByNameLive(name: String): LiveData<List<FoodModel>>
+
+    @Query("SELECT * FROM food WHERE name LIKE '%' || :name || '%'")
+    suspend fun getFoodsByName(name: String): List<FoodModel>
 }

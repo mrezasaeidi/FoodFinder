@@ -56,7 +56,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun fillUsers(userDao: UserDao) {
-        var baseId = 0
+        var baseId = 1
         userDao.apply {
             insertOrUpdate(UserModel(baseId++, "نیکتا اکبرپور", null))
             insertOrUpdate(UserModel(baseId++, "سروش باجغلی", null))
@@ -67,7 +67,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun fillCategory(categoryDao: CategoryDao) {
-        var baseId = 0
+        var baseId = 1
         categoryDao.apply {
             insertOrUpdate(
                 CategoryModel(
@@ -113,7 +113,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun fillFoods(foodDao: FoodDao) {
-        var baseId = 0
+        var baseId = 1
 //        foodDao.apply {
 //            insertOrUpdate(FoodModel(baseId++,))
 //        }

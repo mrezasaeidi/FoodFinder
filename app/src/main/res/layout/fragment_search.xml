@@ -5,25 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/_logo"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_chef" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/searchFoodSearchET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_border_bg_12dp"
+        android:drawablePadding="16dp"
+        android:hint="@string/search"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:singleLine="true"
+        app:drawableEndCompat="@drawable/ic_search"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
+        android:id="@+id/searchFragSearchHintTV"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/implement_in_future"
-        android:textSize="?attr/text_size_bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_logo"
-        tools:textSize="@dimen/text_size_bold" />
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/search_hint"
+        android:textColor="@color/dark_grey_dash"
+        android:textSize="?attr/text_size_medium"
+        app:layout_constraintTop_toBottomOf="@id/searchFoodSearchET"
+        tools:textSize="@dimen/text_size_medium" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchFoodResultCollectionRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layoutAnimation="@anim/slide_in_left_layout"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchFoodSearchET"
+        app:spanCount="2"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
