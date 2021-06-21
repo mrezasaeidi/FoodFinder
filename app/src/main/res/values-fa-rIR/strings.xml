@@ -28,6 +28,8 @@
     <string name="to">تا</string>
     <string name="minute">دقیقه</string>
     <string name="time_formatter" formatted="true">از %s دقیقه تا %s دقیقه</string>
+    <string name="calorie">کالری</string>
+    <string name="calorie_formatter" formatted="true">از %s کالری تا %s کالری</string>
     <string-array name="materials">
         <item>آرد</item>
         <item>آرد برنج</item>

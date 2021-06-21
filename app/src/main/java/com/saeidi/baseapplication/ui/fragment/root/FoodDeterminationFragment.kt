@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.google.android.flexbox.FlexboxLayout
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.ui.fragment.base.BaseFragment
+import com.saeidi.baseapplication.ui.fragment.fooddeterminator.CalorieSelectorFragment
 import com.saeidi.baseapplication.ui.fragment.fooddeterminator.SelectMaterialFragment
 import com.saeidi.baseapplication.ui.fragment.fooddeterminator.TimeSelectorFragment
 import com.saeidi.baseapplication.ui.view.CardItem
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_food_determinator.view.*
 class FoodDeterminationFragment : BaseFragment() {
     private var selectedMaterials = emptyList<String>()
     private var timeRange: Pair<Int, Int>? = null
+    private var calorieRange: Pair<Int, Int>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,9 +40,7 @@ class FoodDeterminationFragment : BaseFragment() {
         }
         view.foodSelectCalorieTV.apply {
             typeface = Fonts.bold()
-            setOnClickListener {
-
-            }
+            setOnClickListener { openSelectCalorie() }
         }
 
         view.foodSearchBtn.setOnClickListener {
@@ -55,6 +55,18 @@ class FoodDeterminationFragment : BaseFragment() {
             override fun onRemoveClick() {
                 timeRange = null
                 view.foodSelectedTimeCI.gone()
+            }
+
+        })
+
+        view.foodSelectedCalorieCI.setCallBack(object : CardItem.EventCallBack {
+            override fun onContentClick() {
+                openSelectCalorie()
+            }
+
+            override fun onRemoveClick() {
+                calorieRange = null
+                view.foodSelectedCalorieCI.gone()
             }
 
         })
@@ -114,6 +126,27 @@ class FoodDeterminationFragment : BaseFragment() {
                 R.string.time_formatter,
                 LayoutUtil.formatNumber(timeRange.first),
                 LayoutUtil.formatNumber(timeRange.second)
+            )
+            visible()
+        }
+    }
+
+    private fun openSelectCalorie() {
+        CalorieSelectorFragment().apply { selectedRange = calorieRange }
+            .show(childFragmentManager, "CalorieSelectorFragment")
+    }
+
+    fun onCalorieSelected(calorieRange: Pair<Int, Int>?) {
+        this.calorieRange = calorieRange
+        foodSelectedCalorieCI.apply {
+            if (calorieRange == null) {
+                gone()
+                return@apply
+            }
+            text = getString(
+                R.string.calorie_formatter,
+                LayoutUtil.formatNumber(calorieRange.first),
+                LayoutUtil.formatNumber(calorieRange.second)
             )
             visible()
         }
