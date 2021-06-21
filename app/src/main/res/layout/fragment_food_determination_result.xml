@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/selectFoodSheetCancel"
+        android:id="@+id/foodResultSheetCancel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/dialog_overlay"
@@ -16,7 +16,7 @@
         tools:visibility="visible" />
 
     <LinearLayout
-        android:id="@+id/selectFoodToolbarTop"
+        android:id="@+id/foodResultToolbarTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorPrimary"
@@ -28,7 +28,7 @@
         tools:visibility="visible">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/selectFoodTopCancelIV"
+            android:id="@+id/foodResultTopCancelIV"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center_vertical"
@@ -46,32 +46,18 @@
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:drawablePadding="16dp"
-            android:text="@string/material"
+            android:text="@string/what_to_cook"
             android:textSize="?attr/text_size_medium"
-            app:drawableStartCompat="@drawable/ic_diet"
+            app:drawableStartCompat="@drawable/ic_fast_food"
             tools:textSize="@dimen/text_size_medium" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/selectFoodTopDoneIV"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="4dp"
-            app:srcCompat="@drawable/ic_check"
-            app:tint="@color/material_primary" />
 
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/selectFoodBottomSheet"
+        android:id="@+id/foodResultBottomSheet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rounded_top_24dp"
+        android:background="@drawable/rounded_top_24dp_grey"
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
@@ -89,7 +75,7 @@
             app:srcCompat="@drawable/bottom_sheet_handle_view" />
 
         <LinearLayout
-            android:id="@+id/selectFoodToolbar"
+            android:id="@+id/foodResultToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -98,7 +84,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/selectFoodCancelIV"
+                android:id="@+id/foodResultCancelIV"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center_vertical"
@@ -116,80 +102,38 @@
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
                 android:drawablePadding="16dp"
-                android:text="@string/material"
+                android:text="@string/what_to_cook"
                 android:textSize="?attr/text_size_medium"
-                app:drawableStartCompat="@drawable/ic_diet" />
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/selectFoodDoneIV"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:padding="4dp"
-                app:srcCompat="@drawable/ic_check"
-                app:tint="@color/material_primary" />
+                app:drawableStartCompat="@drawable/ic_fast_food" />
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/selectFoodSearchET"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/foodResultEmptyTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_border_bg_12dp"
-            android:drawablePadding="16dp"
-            android:hint="@string/search"
-            android:maxLines="1"
-            android:padding="8dp"
-            android:singleLine="true"
-            app:drawableEndCompat="@drawable/ic_search"
-            app:layout_constraintTop_toBottomOf="@id/selectFoodToolbar" />
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/search_empty_result"
+            android:textColor="@color/dark_grey_dash"
+            android:textSize="?attr/text_size_medium"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/foodResultToolbar"
+            tools:textSize="@dimen/text_size_medium"
+            tools:visibility="visible" />
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foodResultListRV"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:paddingBottom="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/selectFoodSearchET">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/selectFoodSelectedFB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="16dp"
-                    android:visibility="gone"
-                    app:flexWrap="wrap"
-                    tools:visibility="visible" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/selectFoodMaterialListRV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="2" />
-
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            app:layout_constraintTop_toBottomOf="@id/foodResultToolbar"
+            app:spanCount="2"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

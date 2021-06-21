@@ -11,6 +11,7 @@ data class FoodModel(
     val id: Int,
     val name: String,
     val categoryId: Int,
+    val calorie: Int,
     val photosUrl: List<String>,
     val recipe: List<RecipeStep>,
     val memberCount: Int,

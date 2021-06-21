@@ -6,9 +6,10 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.flexbox.FlexboxLayout
 import com.saeidi.baseapplication.R
+import com.saeidi.baseapplication.storage.viewmodel.FoodViewModel
 import com.saeidi.baseapplication.ui.adapter.MaterialsAdapter
 import com.saeidi.baseapplication.ui.fragment.base.FullBottomSheetFragment
 import com.saeidi.baseapplication.ui.fragment.root.FoodDeterminationFragment
@@ -17,6 +18,9 @@ import com.saeidi.baseapplication.utils.Screen
 import com.saeidi.baseapplication.utils.gone
 import com.saeidi.baseapplication.utils.visible
 import kotlinx.android.synthetic.main.fragment_select_material.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SelectMaterialFragment : FullBottomSheetFragment() {
     override var bottomSheetId = R.id.selectFoodBottomSheet
@@ -51,17 +55,28 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
                 materialsAdapter.query = s.toString()
             }
         })
+
         materialsAdapter = MaterialsAdapter(
-            requireContext().resources.getStringArray(R.array.materials).toList(),
             ArrayList(selectedMaterials)
         ) {
             updateSelectedMaterials(it)
         }
-        view.selectFoodMaterialListRV.apply {
-            layoutManager = GridLayoutManager(context, 2)
-            adapter = materialsAdapter
-        }
+        view.selectFoodMaterialListRV.adapter = materialsAdapter
         updateSelectedMaterials(selectedMaterials)
+        GlobalScope.launch {
+            val allMaterials = ViewModelProvider
+                .AndroidViewModelFactory
+                .getInstance(requireActivity().application)
+                .create(FoodViewModel::class.java)
+                .getAllFoods()
+                .map { food -> food.materials.map { it.name } }
+                .flatten()
+                .toSet()
+                .toList()
+            GlobalScope.launch(Dispatchers.Main) {
+                materialsAdapter.allMaterials = allMaterials
+            }
+        }
     }
 
     private fun updateSelectedMaterials(selected: List<String>) {

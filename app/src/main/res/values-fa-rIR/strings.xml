@@ -36,16 +36,4 @@
     <string name="sort_best_user">بهترین کاربران</string>
     <string name="search_empty_result">هیچ غذایی یافت نشد</string>
     <string name="search_hint">چیزی بنویسید تا جست‌وجو کنیم</string>
-    <string-array name="materials">
-        <item>آرد</item>
-        <item>آرد برنج</item>
-        <item>آرد سوخاری</item>
-        <item>آلبالو</item>
-        <item>آلو</item>
-        <item>آلو خورشتی</item>
-        <item>آویشن</item>
-        <item>ارده</item>
-        <item>اسفناج</item>
-        <item>تره</item>
-    </string-array>
 </resources>

@@ -21,6 +21,9 @@ interface FoodDao {
     @Query("SELECT * FROM food")
     fun getAllFoodsLive(): LiveData<List<FoodModel>>
 
+    @Query("SELECT * FROM food")
+    suspend fun getAllFoods(): List<FoodModel>
+
     @Query("SELECT * FROM food WHERE categoryId=:categoryId")
     fun getCategoryFoodsLive(categoryId: Int): LiveData<List<FoodModel>>
 

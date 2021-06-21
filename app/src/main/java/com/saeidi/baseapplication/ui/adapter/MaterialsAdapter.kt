@@ -8,10 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.saeidi.baseapplication.utils.Fonts
 
 class MaterialsAdapter(
-    private val allMaterials: List<String>,
     checkedItems: ArrayList<String>,
     private val onSelectedChanged: (ArrayList<String>) -> Unit
 ) : RecyclerView.Adapter<MaterialsAdapter.ViewHolder>() {
+
+    var allMaterials = emptyList<String>()
+        set(value) {
+            field = value
+            query = query
+        }
 
     var query = ""
         set(value) {
