@@ -23,7 +23,7 @@
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:drawableStart="@mipmap/ic_launcher"
+            android:drawableStart="@drawable/ic_chef"
             android:drawablePadding="16dp"
             android:gravity="center"
             android:textSize="?attr/text_size_bold"

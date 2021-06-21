@@ -13,6 +13,7 @@ data class FoodModel(
     val categoryId: Int,
     val photosUrl: List<String>,
     val recipe: List<RecipeStep>,
+    val memberCount: Int,
     val materials: List<Material>,
     val duration: Int,
     val date: Long,

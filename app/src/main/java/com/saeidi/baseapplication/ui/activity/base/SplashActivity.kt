@@ -124,6 +124,7 @@ class SplashActivity : BaseActivity() {
                     2,
                     listOf("https://www.wearesovegan.com/wp-content/uploads/2020/09/howtomakevegankimchirecipe-h1.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("کاهوی چینی", null, null),
                         Material("نمک", null, null),
@@ -149,6 +150,7 @@ class SplashActivity : BaseActivity() {
                     2,
                     listOf("https://img.taste.com.au/w_-0kcUJ/taste/2016/11/aussie-style-beef-and-salad-tacos-86525-1.jpeg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("روغن زیتون", null, null),
                         Material("گوشت گاو", null, null),
@@ -175,6 +177,7 @@ class SplashActivity : BaseActivity() {
                     2,
                     listOf("https://tazzcdn.akamaized.net/uploads/cover/vinicius-benedit--1GEAA8q3wk-unsplash.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("برنج", null, null),
                         Material("سرکه برنج", null, null),
@@ -199,6 +202,7 @@ class SplashActivity : BaseActivity() {
                     2,
                     listOf("https://www.daringgourmet.com/wp-content/uploads/2014/12/Crock-Pot-Beef-Stroganoff-20.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("فیله گوشت", null, null),
                         Material("قارچ", null, null),
@@ -219,6 +223,7 @@ class SplashActivity : BaseActivity() {
                     1,
                     listOf("https://irancook.ir/wp-content/uploads/2019/09/%D8%AE%D9%88%D8%B1%D8%B4%D8%AA-%D8%A8%D8%A7%D8%AF%D9%85%D8%AC%D8%A7%D9%86-%D9%85%D8%AC%D9%84%D8%B3%DB%8C.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("بادمجان", null, null),
                         Material("پیاز", null, null),
@@ -242,6 +247,7 @@ class SplashActivity : BaseActivity() {
                     1,
                     listOf("https://irancook.ir/wp-content/uploads/2020/02/%D8%AF%D9%84%D9%85%D9%87-%D9%81%D9%84%D9%81%D9%84.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("فلفل دلمه ای", null, null),
                         Material("برنج گل کلم", null, null),
@@ -266,6 +272,7 @@ class SplashActivity : BaseActivity() {
                     1,
                     listOf("https://irancook.ir/wp-content/uploads/2019/09/%D9%87%D9%88%D8%A7%D8%B1%DB%8C_-%D9%85%DB%8C%DA%AF%D9%88-min.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("میگو", null, null),
                         Material("برنج", null, null),
@@ -296,6 +303,7 @@ class SplashActivity : BaseActivity() {
                     1,
                     listOf("https://irancook.ir/wp-content/uploads/2012/08/%D8%AD%D9%84%DB%8C%D9%85-%D8%A8%D8%A7%D8%AF%D9%85%D8%AC%D8%A7%D9%86.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("گوشت گوسفند", null, null),
                         Material("لوبیا سفید", null, null),
@@ -323,6 +331,7 @@ class SplashActivity : BaseActivity() {
                     4,
                     listOf("https://images.kojaro.com/2021/2/2d619874-0b5a-4080-b4e0-bcc5a8b5e619.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("ماکارونی", null, null),
                         Material("گوشت", null, null),
@@ -344,6 +353,7 @@ class SplashActivity : BaseActivity() {
                     4,
                     listOf("https://images.kojaro.com/2021/2/266926bf-aa35-4903-a191-8e223a8959f3.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("مرغ سوخاری", null, null),
                         Material("کاهو", null, null),
@@ -372,6 +382,7 @@ class SplashActivity : BaseActivity() {
                     4,
                     listOf("https://images.kojaro.com/2021/2/5f277313-b718-48d6-a16f-0deea5acc56e.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("مرغ", null, null),
                         Material("کالباس", null, null),
@@ -401,6 +412,7 @@ class SplashActivity : BaseActivity() {
                     4,
                     listOf("https://images.kojaro.com/2021/2/c9a26dbc-0287-49a2-a86b-06c8fd995639.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("خیار", null, null),
                         Material("کاهو", null, null),
@@ -423,6 +435,7 @@ class SplashActivity : BaseActivity() {
                     3,
                     listOf("https://www.alamto.com/wp-content/uploads/2019/02/%D8%B3%D9%88%D9%BE-%DA%AF%D9%88%D8%AC%D9%87-%D9%81%D8%B1%D9%86%DA%AF%DB%8C.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("کره", null, null),
                         Material("آرد", null, null),
@@ -448,6 +461,7 @@ class SplashActivity : BaseActivity() {
                     3,
                     listOf("https://www.alamto.com/wp-content/uploads/2014/06/mushroom-soup.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("پیاز", null, null),
                         Material("سیر", null, null),
@@ -474,6 +488,7 @@ class SplashActivity : BaseActivity() {
                     3,
                     listOf("https://www.alamto.com/wp-content/uploads/2021/01/corn-soup-recipe.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("کنسرو ذرت", null, null),
                         Material("روغن", null, null),
@@ -498,6 +513,7 @@ class SplashActivity : BaseActivity() {
                     3,
                     listOf("https://www.alamto.com/wp-content/uploads/2014/05/cabbage-soup.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("پیاز", null, null),
                         Material("کلم", null, null),
@@ -524,6 +540,7 @@ class SplashActivity : BaseActivity() {
                     5,
                     listOf("https://irancook.ir/wp-content/uploads/2020/08/%D8%A7%D9%85%D9%84%D8%AA-%D8%A7%DB%8C%D8%AA%D8%A7%D9%84%DB%8C%D8%A7%DB%8C%DB%8C.png"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("تخم مرغ", null, null),
                         Material("جعفری", null, null),
@@ -546,6 +563,7 @@ class SplashActivity : BaseActivity() {
                     5,
                     listOf("https://irancook.ir/wp-content/uploads/2017/12/Adasi-Khorak.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("عدس", null, null),
                         Material("پیاز", null, null),
@@ -571,6 +589,7 @@ class SplashActivity : BaseActivity() {
                     5,
                     listOf("https://irancook.ir/wp-content/uploads/2020/01/%D8%AA%D8%AE%D9%85-%D9%85%D8%B1%D8%BA-%DA%86%DB%8C%D9%BE%D8%B3.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("تخم مرغ", null, null),
                         Material("چیپس سیب زمینی", null, null),
@@ -593,6 +612,7 @@ class SplashActivity : BaseActivity() {
                     5,
                     listOf("https://irancook.ir/wp-content/uploads/2012/07/khorak-loobia-chiti-10.jpg"),
                     emptyList(),
+                    4,
                     listOf(
                         Material("لوبيا چیتی", null, null),
                         Material("پیاز", null, null),
