@@ -52,14 +52,13 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
             TabsFragment.create(isBottom = true, isHorizontal = false)
         rootFragment.setRootFragment(true)
         val tabs = listOf(
-            Tab(getString(R.string.home), R.drawable.ic_home, HomeFragment()),
+            Tab(getString(R.string.recipes), R.drawable.ic_recipe, RecipesFragment()),
             Tab(getString(R.string.search), R.drawable.ic_search_cute, SearchFragment()),
             Tab(
                 getString(R.string.what_to_cook),
                 R.drawable.ic_fast_food,
                 FoodDeterminationFragment()
             ),
-            Tab(getString(R.string.recipes), R.drawable.ic_recipe, RecipesFragment()),
             Tab(getString(R.string.profile), R.drawable.ic_profile, ProfileFragment())
         )
         val tabsAdapter = SimpleTabAdapter(supportFragmentManager, lifecycle, tabs)
