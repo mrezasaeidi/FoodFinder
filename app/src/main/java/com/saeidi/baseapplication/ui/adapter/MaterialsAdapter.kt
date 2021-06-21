@@ -1,4 +1,4 @@
-package com.saeidi.baseapplication.ui.fragment.fooddeterminator
+package com.saeidi.baseapplication.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup

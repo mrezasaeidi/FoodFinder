@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.flexbox.FlexboxLayout
 import com.saeidi.baseapplication.R
+import com.saeidi.baseapplication.ui.adapter.MaterialsAdapter
 import com.saeidi.baseapplication.ui.fragment.base.FullBottomSheetFragment
 import com.saeidi.baseapplication.ui.fragment.root.FoodDeterminationFragment
 import com.saeidi.baseapplication.ui.view.CardItem
