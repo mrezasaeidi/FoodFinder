@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.repository.local.entity.FoodModel
 import com.saeidi.baseapplication.storage.viewmodel.CategoryViewModel
@@ -24,7 +24,11 @@ class FoodsAdapter(
 ) : RecyclerView.Adapter<FoodsAdapter.ViewHolder>() {
 
     var items = emptyList<FoodModel>()
-    private val radius = Screen.dp(16f)
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+    private val radius = Screen.dp(16f).toFloat()
 
     private fun getItem(position: Int) = items.getOrNull(position)
 
@@ -46,7 +50,7 @@ class FoodsAdapter(
                     foodImageIV.setImageResource(R.drawable.ic_chef)
                 } else {
                     Glide.with(fragment).load(foodModel.photosUrl[0])
-                        .transform(RoundedCorners(radius))
+                        .transform(GranularRoundedCorners(radius, radius, 0f, 0f))
                         .placeholder(R.drawable.ic_chef)
                         .error(R.drawable.ic_chef)
                         .into(foodImageIV)
@@ -65,7 +69,10 @@ class FoodsAdapter(
                         }
                     }
                 }
-                foodNameTV.text = foodModel.name
+                foodNameTV.apply {
+                    text = foodModel.name
+                    typeface = Fonts.bold()
+                }
                 foodSenderNameTV.apply {
                     GlobalScope.launch(Dispatchers.Main) {
                         userViewModel.getUser(foodModel.senderUserId)?.let {

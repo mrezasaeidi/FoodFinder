@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_grey_with_night_support">
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/searchFoodSearchET"
@@ -38,8 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layoutAnimation="@anim/slide_in_left_layout"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.viewmodel.CategoryViewModel
 import com.saeidi.baseapplication.storage.viewmodel.FoodViewModel
@@ -60,10 +59,7 @@ class FoodsFragment : BaseFragment() {
         val foodsAdapters = FoodsAdapter(this, categoryVM, userVM) {
             startActivity(Intents.openFood(requireActivity(), it.id))
         }
-        view.foodsCollectionRV.apply {
-            layoutManager = GridLayoutManager(context, 2)
-            adapter = foodsAdapters
-        }
+        view.foodsCollectionRV.adapter = foodsAdapters
         val liveCollection = if (categoryId == 0) {
             foodVM.getAllFoodsLive()
         } else {

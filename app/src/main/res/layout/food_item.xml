@@ -67,9 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="8dp">
+                android:padding="8dp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/foodSenderNameTV"
@@ -82,15 +80,16 @@
                     android:maxLines="1"
                     android:textColor="@color/dark_grey_dash"
                     android:textSize="?attr/text_size_nano"
-                    app:drawableStartCompat="@drawable/ic_profile"
-                    tools:textSize="@dimen/text_size_nano"
                     android:visibility="gone"
-                    tools:visibility="visible"/>
+                    app:drawableStartCompat="@drawable/ic_profile"
+                    app:drawableTint="@color/dark_grey_dash"
+                    tools:textSize="@dimen/text_size_nano"
+                    tools:visibility="visible" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/foodCommentTV"
@@ -98,9 +97,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
+                    android:drawablePadding="4dp"
                     android:gravity="center"
+                    android:textColor="@color/dark_grey_dash"
                     android:textSize="?attr/text_size_nano"
                     app:drawableEndCompat="@drawable/ic_comment_micro"
+                    app:drawableTint="@color/dark_grey_dash"
                     tools:textSize="@dimen/text_size_nano" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -109,9 +111,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
+                    android:drawablePadding="4dp"
                     android:gravity="center"
+                    android:textColor="@color/dark_grey_dash"
                     android:textSize="?attr/text_size_nano"
                     app:drawableEndCompat="@drawable/ic_like_micro"
+                    app:drawableTint="@color/dark_grey_dash"
                     tools:textSize="@dimen/text_size_nano" />
 
             </LinearLayout>
