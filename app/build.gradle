@@ -46,13 +46,13 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
     // Architecture
-//    implementation "androidx.room:room-runtime:$room_version"
-//    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
     // Data Transfer
 //    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-//    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.google.code.gson:gson:$gson_version"
 //    implementation "com.squareup.retrofit2:converter-gson:$gson_convertor_version"
 //    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
 
@@ -67,6 +67,6 @@ dependencies {
     implementation "io.github.inflationx:calligraphy3:$calligraphy_version"
     implementation "com.google.android:flexbox:$flexbox_version"
 //    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout_version"
-//    implementation "com.github.bumptech.glide:glide:$glide_version"
-//    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 }
