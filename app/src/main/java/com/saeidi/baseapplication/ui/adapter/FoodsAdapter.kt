@@ -54,7 +54,11 @@ class FoodsAdapter(
                 foodCategoryTV.apply {
                     GlobalScope.launch(Dispatchers.Main) {
                         categoryViewModel.getCategory(foodModel.categoryId)?.let {
-                            text = it.name
+                            text = if (LayoutUtil.isFa()) {
+                                it.nameFa
+                            } else {
+                                it.nameEn
+                            }
                             visible()
                         } ?: run {
                             gone()

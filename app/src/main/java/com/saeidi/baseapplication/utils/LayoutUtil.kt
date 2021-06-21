@@ -33,6 +33,10 @@ object LayoutUtil {
         return lang
     }
 
+    fun isFa() = getLanguage() == Lang.FA
+
+    fun isEn() = getLanguage() == Lang.EN
+
     fun formatNumber(value: Int): String {
         return NumberFormatting.toLocale(value.toString(), locale)
     }
