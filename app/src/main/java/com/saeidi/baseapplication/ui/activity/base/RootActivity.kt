@@ -44,7 +44,7 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
 
         // Configure Toolbar
         if (toolbar != null) {
-            toolbarTitle.typeface = Fonts.extraBold()
+            toolbarTitle.typeface = Fonts.bold()
             setSupportActionBar(toolbar)
         }
         supportActionBar?.elevation = 16f
