@@ -24,7 +24,8 @@
                 android:id="@+id/categoryImageIV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/ic_chef" />
+                app:srcCompat="@drawable/ic_chef"
+                android:scaleType="centerCrop"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/categoryNameTV"

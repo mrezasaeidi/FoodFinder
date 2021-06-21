@@ -14,6 +14,7 @@ import com.google.android.material.navigation.NavigationView
 import com.saeidi.baseapplication.Application
 import com.saeidi.baseapplication.Constants
 import com.saeidi.baseapplication.R
+import com.saeidi.baseapplication.storage.repository.local.LocalDatabase
 import com.saeidi.baseapplication.ui.fragment.base.tab.SimpleTabAdapter
 import com.saeidi.baseapplication.ui.fragment.base.tab.Tab
 import com.saeidi.baseapplication.ui.fragment.base.tab.TabsFragment
@@ -225,6 +226,7 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
     private fun clearCache() {
         GlobalScope.launch {
             getSharedPreferences(Constants.CONFIG_PREF_NAME, MODE_PRIVATE).edit().clear().apply()
+            LocalDatabase.getDatabase(this@RootActivity).deleteDatabase()
             Application.restart(applicationContext, 500)
         }
     }

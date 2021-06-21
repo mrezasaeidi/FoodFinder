@@ -22,7 +22,7 @@ class CategoryAdapter(
 
     private val radius = Screen.dp(16f)
 
-    var categories = ArrayList<CategoryModel>()
+    var categories = emptyList<CategoryModel>()
         set(value) {
             field = value
             notifyDataSetChanged()
