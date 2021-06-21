@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.repository.local.entity.FoodModel
 import com.saeidi.baseapplication.storage.viewmodel.CategoryViewModel
@@ -24,7 +24,7 @@ class FoodsAdapter(
 ) : RecyclerView.Adapter<FoodsAdapter.ViewHolder>() {
 
     var items = emptyList<FoodModel>()
-    private val radius = Screen.dp(16f).toFloat()
+    private val radius = Screen.dp(16f)
 
     private fun getItem(position: Int) = items.getOrNull(position)
 
@@ -43,12 +43,12 @@ class FoodsAdapter(
             itemView.apply {
                 setOnClickListener { onItemClicked.invoke(foodModel) }
                 if (foodModel.photosUrl.isEmpty()) {
-                    foodImageIV.setImageResource(R.drawable.ic_photo)
+                    foodImageIV.setImageResource(R.drawable.ic_chef)
                 } else {
                     Glide.with(fragment).load(foodModel.photosUrl[0])
-                        .transform(GranularRoundedCorners(radius, radius, 0f, 0f))
-                        .placeholder(R.drawable.ic_photo)
-                        .error(R.drawable.ic_photo)
+                        .transform(RoundedCorners(radius))
+                        .placeholder(R.drawable.ic_chef)
+                        .error(R.drawable.ic_chef)
                         .into(foodImageIV)
                 }
                 foodCategoryTV.apply {

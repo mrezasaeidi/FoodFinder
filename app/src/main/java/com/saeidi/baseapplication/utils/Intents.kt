@@ -1,5 +1,6 @@
 package com.saeidi.baseapplication.utils
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.saeidi.baseapplication.ui.activity.base.RouterActivity
@@ -15,9 +16,11 @@ object Intents {
     const val PARAM_5 = "PARAM_5"
 
     // Fragments
+    const val FOODS_FRAGMENT = 1
+    const val FOOD_FRAGMENT = 2
 
 
-    private fun createIntent(activity: AppCompatActivity, cls: Class<*>?): Intent {
+    private fun createIntent(activity: Activity, cls: Class<*>?): Intent {
         val intent = Intent(activity, cls)
         if (activity.intent.extras != null) {
             intent.putExtras(activity.intent.extras!!)
@@ -25,9 +28,21 @@ object Intents {
         return intent
     }
 
-    private fun route(activity: AppCompatActivity, fragmentId: Int): Intent {
+    private fun route(activity: Activity, fragmentId: Int): Intent {
         val intent = createIntent(activity, RouterActivity::class.java)
         intent.putExtra(FRAGMENT_ID, fragmentId)
         return intent
+    }
+
+    fun openCategory(activity: Activity, categoryId: Int): Intent {
+        return route(activity, FOODS_FRAGMENT).apply {
+            putExtra(PARAM_1, categoryId)
+        }
+    }
+
+    fun openFood(activity: Activity, foodId: Int): Intent {
+        return route(activity, FOOD_FRAGMENT).apply {
+            putExtra(PARAM_1, foodId)
+        }
     }
 }

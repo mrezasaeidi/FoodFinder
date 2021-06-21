@@ -11,5 +11,5 @@ data class CategoryModel(
     val id: Int,
     val nameFa: String,
     val nameEn: String,
-    val photoUrl: String
+    val photoUrl: String?
 )

@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_photo" />
+                    app:srcCompat="@drawable/ic_chef" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/foodCategoryTV"
