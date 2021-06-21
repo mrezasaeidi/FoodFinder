@@ -18,6 +18,7 @@ import com.saeidi.baseapplication.ui.fragment.base.tab.SimpleTabAdapter
 import com.saeidi.baseapplication.ui.fragment.base.tab.Tab
 import com.saeidi.baseapplication.ui.fragment.base.tab.TabsFragment
 import com.saeidi.baseapplication.ui.fragment.root.*
+import com.saeidi.baseapplication.utils.Fonts
 import com.saeidi.baseapplication.utils.LayoutUtil
 import com.saeidi.baseapplication.utils.Style
 import kotlinx.android.synthetic.main.activity_root_layout.*
@@ -42,14 +43,15 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
 
         // Configure Toolbar
         if (toolbar != null) {
+            toolbarTitle.typeface = Fonts.extraBold()
             setSupportActionBar(toolbar)
         }
         supportActionBar?.elevation = 16f
-        val rootFragment = TabsFragment.create(isBottom = true, isHorizontal = false)
+        val rootFragment =
+            TabsFragment.create(isBottom = true, isHorizontal = false, defaultTab = 1)
         rootFragment.setRootFragment(true)
         val tabs = listOf(
-            Tab(getString(R.string.home), R.drawable.ic_home, HomeFragment()),
-            Tab(getString(R.string.search), R.drawable.ic_search, SearchFragment()),
+            Tab(getString(R.string.search), R.drawable.ic_search_cute, SearchFragment()),
             Tab(
                 getString(R.string.what_to_cook),
                 R.drawable.ic_fast_food,
@@ -88,7 +90,7 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
             Style.inNightMode(this)
 
         navigationView.getHeaderView(0).apply {
-
+            nav_header_title.typeface = Fonts.bold()
         }
 
         navMenu!!.findItem(R.id.nav_version).title =

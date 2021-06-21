@@ -25,4 +25,18 @@
     <string name="food_select_time">Cooking Time</string>
     <string name="food_select_calorie">Calorie</string>
     <string name="find_food">Find Food</string>
+    <string name="material">Material</string>
+    <string name="create_account">Create Account</string>
+    <string-array name="materials">
+        <item>آرد</item>
+        <item>آرد برنج</item>
+        <item>آرد سوخاری</item>
+        <item>آلبالو</item>
+        <item>آلو</item>
+        <item>آلو خورشتی</item>
+        <item>آویشن</item>
+        <item>ارده</item>
+        <item>اسفناج</item>
+        <item>تره</item>
+    </string-array>
 </resources>

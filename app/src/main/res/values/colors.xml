@@ -17,6 +17,8 @@
     <color name="dark_grey_dash">#92A2B2</color>
     <color name="light_grey_dash">#8FA4B8</color>
 
+    <color name="dialog_overlay">#33000000</color>
+
 
     <!--Base Material Colors-->
     <color name="md_black_1000">#000000</color>
