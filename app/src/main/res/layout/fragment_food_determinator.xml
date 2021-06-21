@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:paddingBottom="16dp"
+                android:paddingBottom="8dp"
                 android:visibility="gone"
                 app:flexWrap="wrap"
                 tools:visibility="visible" />
@@ -60,19 +60,14 @@
                 app:drawableEndCompat="@drawable/ic_clock"
                 tools:textSize="@dimen/text_size_regular" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/foodSelectedTimeTV"
-                android:layout_width="match_parent"
+            <com.saeidi.baseapplication.ui.view.CardItem
+                android:id="@+id/foodSelectedTimeCI"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="16dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:textColor="@color/dark_grey_dash"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
                 android:visibility="gone"
-                app:drawableStartCompat="@drawable/ic_check_micro"
-                app:drawableTint="@color/secondary_color"
-                tools:text="حداکثر یکساعت"
                 tools:visibility="visible" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -86,19 +81,14 @@
                 app:drawableEndCompat="@drawable/ic_calorie"
                 tools:textSize="@dimen/text_size_regular" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/foodSelectedCalorieTV"
-                android:layout_width="match_parent"
+            <com.saeidi.baseapplication.ui.view.CardItem
+                android:id="@+id/foodSelectedCalorieCI"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="16dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:textColor="@color/dark_grey_dash"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
                 android:visibility="gone"
-                app:drawableStartCompat="@drawable/ic_check_micro"
-                app:drawableTint="@color/secondary_color"
-                tools:text="حداکثر 500 کالری"
                 tools:visibility="visible" />
         </LinearLayout>
     </ScrollView>
@@ -112,8 +102,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:background="?attr/selectableItemBackground"
-        app:cardElevation="16dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"

@@ -8,15 +8,15 @@ import com.google.android.flexbox.FlexboxLayout
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.ui.fragment.base.BaseFragment
 import com.saeidi.baseapplication.ui.fragment.fooddeterminator.SelectMaterialFragment
+import com.saeidi.baseapplication.ui.fragment.fooddeterminator.TimeSelectorFragment
 import com.saeidi.baseapplication.ui.view.CardItem
-import com.saeidi.baseapplication.utils.Fonts
-import com.saeidi.baseapplication.utils.Screen
-import com.saeidi.baseapplication.utils.gone
-import com.saeidi.baseapplication.utils.visible
+import com.saeidi.baseapplication.utils.*
+import kotlinx.android.synthetic.main.fragment_food_determinator.*
 import kotlinx.android.synthetic.main.fragment_food_determinator.view.*
 
 class FoodDeterminationFragment : BaseFragment() {
     private var selectedMaterials = emptyList<String>()
+    private var timeRange: Pair<Int, Int>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,17 +30,11 @@ class FoodDeterminationFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         view.foodSelectMaterialTV.apply {
             typeface = Fonts.bold()
-            setOnClickListener {
-                SelectMaterialFragment().apply {
-                    selectedMaterials = this@FoodDeterminationFragment.selectedMaterials
-                }.show(childFragmentManager, "SelectMaterialFragment")
-            }
+            setOnClickListener { openSelectMaterial() }
         }
         view.foodSelectTimeTV.apply {
             typeface = Fonts.bold()
-            setOnClickListener {
-
-            }
+            setOnClickListener { openSelectTime() }
         }
         view.foodSelectCalorieTV.apply {
             typeface = Fonts.bold()
@@ -52,6 +46,24 @@ class FoodDeterminationFragment : BaseFragment() {
         view.foodSearchBtn.setOnClickListener {
 
         }
+
+        view.foodSelectedTimeCI.setCallBack(object : CardItem.EventCallBack {
+            override fun onContentClick() {
+                openSelectTime()
+            }
+
+            override fun onRemoveClick() {
+                timeRange = null
+                view.foodSelectedTimeCI.gone()
+            }
+
+        })
+    }
+
+    private fun openSelectMaterial() {
+        SelectMaterialFragment().apply {
+            selectedMaterials = this@FoodDeterminationFragment.selectedMaterials
+        }.show(childFragmentManager, "SelectMaterialFragment")
     }
 
     fun onMaterialSelected(materials: List<String>) {
@@ -67,7 +79,9 @@ class FoodDeterminationFragment : BaseFragment() {
             materials.forEach {
                 val cardItem = CardItem(context)
                 cardItem.setCallBack(object : CardItem.EventCallBack {
-                    override fun onContentClick() = Unit
+                    override fun onContentClick() {
+                        openSelectMaterial()
+                    }
 
                     override fun onRemoveClick() {
                         onMaterialSelected(selectedMaterials.filter { material -> material != it })
@@ -81,6 +95,27 @@ class FoodDeterminationFragment : BaseFragment() {
             } else {
                 gone()
             }
+        }
+    }
+
+    private fun openSelectTime() {
+        TimeSelectorFragment().apply { selectedRange = timeRange }
+            .show(childFragmentManager, "TimeSelectorFragment")
+    }
+
+    fun onTimeSelected(timeRange: Pair<Int, Int>?) {
+        this.timeRange = timeRange
+        foodSelectedTimeCI.apply {
+            if (timeRange == null) {
+                gone()
+                return@apply
+            }
+            text = getString(
+                R.string.time_formatter,
+                LayoutUtil.formatNumber(timeRange.first),
+                LayoutUtil.formatNumber(timeRange.second)
+            )
+            visible()
         }
     }
 }

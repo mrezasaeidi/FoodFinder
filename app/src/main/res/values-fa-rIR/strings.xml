@@ -24,6 +24,10 @@
     <string name="find_food">جست‌وجوی غذا</string>
     <string name="material">مواد اولیه</string>
     <string name="create_account">ایجاد حساب کاربری</string>
+    <string name="from">از</string>
+    <string name="to">تا</string>
+    <string name="minute">دقیقه</string>
+    <string name="time_formatter" formatted="true">از %s دقیقه تا %s دقیقه</string>
     <string-array name="materials">
         <item>آرد</item>
         <item>آرد برنج</item>

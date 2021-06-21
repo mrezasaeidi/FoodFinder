@@ -30,7 +30,7 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return inflater.inflate(R.layout.fragment_select_material, container, false)
     }
 
@@ -94,10 +94,8 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
         }
     }
 
-
     private fun next() {
         (parentFragment as FoodDeterminationFragment).onMaterialSelected(selectedMaterials)
         forceHide()
     }
-
 }

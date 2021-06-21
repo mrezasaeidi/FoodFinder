@@ -27,6 +27,10 @@
     <string name="find_food">Find Food</string>
     <string name="material">Material</string>
     <string name="create_account">Create Account</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="minute">Minute</string>
+    <string name="time_formatter" formatted="true">From %s Minutes To %s Minutes</string>
     <string-array name="materials">
         <item>آرد</item>
         <item>آرد برنج</item>
