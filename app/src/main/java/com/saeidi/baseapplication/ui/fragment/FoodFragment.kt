@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.repository.local.entity.CategoryModel
 import com.saeidi.baseapplication.storage.repository.local.entity.FoodModel
