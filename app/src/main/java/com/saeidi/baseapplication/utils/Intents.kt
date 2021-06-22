@@ -2,7 +2,6 @@ package com.saeidi.baseapplication.utils
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import com.saeidi.baseapplication.ui.activity.base.RouterActivity
 
 object Intents {
@@ -18,6 +17,7 @@ object Intents {
     // Fragments
     const val FOODS_FRAGMENT = 1
     const val FOOD_FRAGMENT = 2
+    const val LOGIN_FRAGMENT = 3
 
 
     private fun createIntent(activity: Activity, cls: Class<*>?): Intent {
@@ -44,5 +44,9 @@ object Intents {
         return route(activity, FOOD_FRAGMENT).apply {
             putExtra(PARAM_1, foodId)
         }
+    }
+
+    fun openLogin(activity: Activity): Intent {
+        return route(activity, LOGIN_FRAGMENT)
     }
 }

@@ -27,6 +27,7 @@
     <string name="find_food">Find Food</string>
     <string name="material">Material</string>
     <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="minute">Minute</string>

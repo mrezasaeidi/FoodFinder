@@ -1,5 +1,6 @@
 package com.saeidi.baseapplication.ui.fragment.root
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.viewmodel.CategoryViewModel
 import com.saeidi.baseapplication.storage.viewmodel.FoodViewModel
@@ -15,7 +17,6 @@ import com.saeidi.baseapplication.ui.adapter.FoodsAdapter
 import com.saeidi.baseapplication.ui.fragment.base.BaseFragment
 import com.saeidi.baseapplication.utils.Intents
 import com.saeidi.baseapplication.utils.ViewUtils
-import com.saeidi.baseapplication.utils.gone
 import com.saeidi.baseapplication.utils.visible
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
@@ -61,6 +62,16 @@ class SearchFragment : BaseFragment() {
                 initSearch()
             }
         })
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        (view?.searchFoodResultCollectionRV?.layoutManager as GridLayoutManager).spanCount =
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                3
+            } else {
+                2
+            }
     }
 
     private fun initSearch() {

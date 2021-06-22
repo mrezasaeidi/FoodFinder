@@ -61,7 +61,7 @@
                 android:drawablePadding="8dp"
                 android:gravity="center"
                 android:textSize="?attr/text_size_ultralight"
-                app:drawableEndCompat="@drawable/ic_comment"
+                app:drawableEndCompat="@drawable/ic_comment_micro"
                 tools:text="10"
                 tools:textSize="@dimen/text_size_ultralight" />
 
@@ -74,7 +74,7 @@
                 android:drawablePadding="8dp"
                 android:gravity="center"
                 android:textSize="?attr/text_size_ultralight"
-                app:drawableEndCompat="@drawable/ic_like"
+                app:drawableEndCompat="@drawable/ic_like_micro"
                 tools:text="10"
                 tools:textSize="@dimen/text_size_ultralight" />
 

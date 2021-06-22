@@ -1,5 +1,6 @@
 package com.saeidi.baseapplication.ui.fragment
 
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.repository.local.entity.FoodModel
 import com.saeidi.baseapplication.storage.viewmodel.CategoryViewModel
@@ -91,7 +93,17 @@ class FoodsFragment : BaseFragment() {
         updateSort(selectedSort)
     }
 
-    fun applyList(adapter: FoodsAdapter, foods: List<FoodModel>) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        (view?.foodsCollectionRV?.layoutManager as GridLayoutManager).spanCount =
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                3
+            } else {
+                2
+            }
+    }
+
+    private fun applyList(adapter: FoodsAdapter, foods: List<FoodModel>) {
         adapter.items = when (selectedSort) {
             SortType.NEWEST -> foods.sortedByDescending { it.date }
             SortType.WEEK -> foods.sortedByDescending { it.commentCount }

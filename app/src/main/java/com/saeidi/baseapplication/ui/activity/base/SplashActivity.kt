@@ -21,6 +21,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.Int
+import kotlin.Long
+import kotlin.apply
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -329,7 +332,7 @@ class SplashActivity : BaseActivity() {
                         Material("سیر", null, null),
                         Material("گشنیز", null, null),
                         Material("شنبلیله", null, null),
-                        Material("رب گوجه", null, null),
+                        Material("رب گوجه فرنگی", null, null),
                         Material("کره", null, null),
                         Material("روغن", null, null),
                         Material("نمک", null, null),

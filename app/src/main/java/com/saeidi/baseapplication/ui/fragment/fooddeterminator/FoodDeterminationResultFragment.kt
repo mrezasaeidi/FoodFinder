@@ -1,11 +1,12 @@
 package com.saeidi.baseapplication.ui.fragment.fooddeterminator
 
-import android.content.res.ColorStateList
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.repository.local.entity.FoodModel
 import com.saeidi.baseapplication.storage.viewmodel.CategoryViewModel
@@ -13,7 +14,6 @@ import com.saeidi.baseapplication.storage.viewmodel.UserViewModel
 import com.saeidi.baseapplication.ui.adapter.FoodsAdapter
 import com.saeidi.baseapplication.ui.fragment.base.FullBottomSheetFragment
 import com.saeidi.baseapplication.utils.Intents
-import com.saeidi.baseapplication.utils.Style
 import com.saeidi.baseapplication.utils.gone
 import com.saeidi.baseapplication.utils.visible
 import kotlinx.android.synthetic.main.fragment_food_determination_result.view.*
@@ -59,5 +59,15 @@ class FoodDeterminationResultFragment : FullBottomSheetFragment() {
             view.foodResultEmptyTV.gone()
             view.foodResultListRV.visible()
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        (view?.foodResultListRV?.layoutManager as GridLayoutManager).spanCount =
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                3
+            } else {
+                2
+            }
     }
 }

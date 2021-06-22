@@ -10,13 +10,9 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.saeidi.baseapplication.utils.Screen
+import com.saeidi.baseapplication.utils.*
 import com.saeidi.baseapplication.utils.ViewUtils.goneView
 import com.saeidi.baseapplication.utils.ViewUtils.showView
-import com.saeidi.baseapplication.utils.gone
-import com.saeidi.baseapplication.utils.invisible
-import com.saeidi.baseapplication.utils.visible
-import com.saeidi.baseapplication.utils.Runtime
 
 abstract class FullBottomSheetFragment : DialogFragment() {
 

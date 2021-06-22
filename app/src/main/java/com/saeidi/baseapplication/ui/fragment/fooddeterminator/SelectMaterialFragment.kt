@@ -72,7 +72,7 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
                 .map { food -> food.materials.map { it.name } }
                 .flatten()
                 .toSet()
-                .toList()
+                .sorted()
             GlobalScope.launch(Dispatchers.Main) {
                 selectMaterialsAdapter.allMaterials = allMaterials
             }

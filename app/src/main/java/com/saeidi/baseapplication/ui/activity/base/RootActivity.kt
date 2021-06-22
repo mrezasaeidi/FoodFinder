@@ -20,6 +20,7 @@ import com.saeidi.baseapplication.ui.fragment.base.tab.Tab
 import com.saeidi.baseapplication.ui.fragment.base.tab.TabsFragment
 import com.saeidi.baseapplication.ui.fragment.root.*
 import com.saeidi.baseapplication.utils.Fonts
+import com.saeidi.baseapplication.utils.Intents
 import com.saeidi.baseapplication.utils.LayoutUtil
 import com.saeidi.baseapplication.utils.Style
 import kotlinx.android.synthetic.main.activity_root_layout.*
@@ -91,7 +92,12 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
             Style.inNightMode(this)
 
         navigationView.getHeaderView(0).apply {
-            nav_header_title.typeface = Fonts.bold()
+            nav_header_title.apply {
+                typeface = Fonts.bold()
+                setOnClickListener {
+                    startActivity(Intents.openLogin(this@RootActivity))
+                }
+            }
         }
 
         navMenu!!.findItem(R.id.nav_version).title =
