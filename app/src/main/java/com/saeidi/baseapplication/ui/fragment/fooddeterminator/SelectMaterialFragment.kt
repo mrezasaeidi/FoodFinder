@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.flexbox.FlexboxLayout
 import com.saeidi.baseapplication.R
 import com.saeidi.baseapplication.storage.viewmodel.FoodViewModel
-import com.saeidi.baseapplication.ui.adapter.MaterialsAdapter
+import com.saeidi.baseapplication.ui.adapter.SelectMaterialsAdapter
 import com.saeidi.baseapplication.ui.fragment.base.FullBottomSheetFragment
 import com.saeidi.baseapplication.ui.fragment.root.FoodDeterminationFragment
 import com.saeidi.baseapplication.ui.view.CardItem
@@ -28,7 +28,7 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
     override var toolbarTopId = R.id.selectFoodToolbarTop
     override var toolbarBottomId = R.id.selectFoodToolbar
 
-    private lateinit var materialsAdapter: MaterialsAdapter
+    private lateinit var selectMaterialsAdapter: SelectMaterialsAdapter
     var selectedMaterials = emptyList<String>()
 
     override fun onCreateView(
@@ -52,16 +52,16 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
 
             override fun afterTextChanged(s: Editable) {
-                materialsAdapter.query = s.toString()
+                selectMaterialsAdapter.query = s.toString()
             }
         })
 
-        materialsAdapter = MaterialsAdapter(
+        selectMaterialsAdapter = SelectMaterialsAdapter(
             ArrayList(selectedMaterials)
         ) {
             updateSelectedMaterials(it)
         }
-        view.selectFoodMaterialListRV.adapter = materialsAdapter
+        view.selectFoodMaterialListRV.adapter = selectMaterialsAdapter
         updateSelectedMaterials(selectedMaterials)
         GlobalScope.launch {
             val allMaterials = ViewModelProvider
@@ -74,7 +74,7 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
                 .toSet()
                 .toList()
             GlobalScope.launch(Dispatchers.Main) {
-                materialsAdapter.allMaterials = allMaterials
+                selectMaterialsAdapter.allMaterials = allMaterials
             }
         }
     }
@@ -96,7 +96,7 @@ class SelectMaterialFragment : FullBottomSheetFragment() {
 
                     override fun onRemoveClick() {
                         updateSelectedMaterials(selectedMaterials.filter { material -> material != it })
-                        materialsAdapter.checkedItems = ArrayList(selectedMaterials)
+                        selectMaterialsAdapter.checkedItems = ArrayList(selectedMaterials)
                     }
                 })
                 cardItem.text = it

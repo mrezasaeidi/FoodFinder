@@ -28,4 +28,8 @@ class FoodViewModel(application: Application) : AndroidViewModel(application) {
     suspend fun getFoodsByName(name: String): List<FoodModel> {
         return foodDao.getFoodsByName(name)
     }
+
+    suspend fun getFood(id: Int): FoodModel? {
+        return foodDao.getFood(id)
+    }
 }

@@ -39,4 +39,10 @@
     <string name="sort_best_user">The Best Of The Users</string>
     <string name="search_empty_result">No Foods Found</string>
     <string name="search_hint">Write Something To Find</string>
+    <string name="necessary_amount">To the extent necessary</string>
+    <string name="unit_gram" formatted="true">%s Gram</string>
+    <string name="unit_litre" formatted="true">%s Litre</string>
+    <string name="unit_spoon" formatted="true">%s Spoon</string>
+    <string name="unit_piece" formatted="true">%s Piece</string>
+    <string name="unit_module" formatted="true">%s Module</string>
 </resources>

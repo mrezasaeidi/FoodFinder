@@ -36,4 +36,10 @@
     <string name="sort_best_user">بهترین کاربران</string>
     <string name="search_empty_result">هیچ غذایی یافت نشد</string>
     <string name="search_hint">چیزی بنویسید تا جست‌وجو کنیم</string>
+    <string name="necessary_amount">به میزان لازم</string>
+    <string name="unit_gram" formatted="true">%s گرم</string>
+    <string name="unit_litre" formatted="true">%s لیتر</string>
+    <string name="unit_spoon" formatted="true">%s قاشق</string>
+    <string name="unit_piece" formatted="true">%s عدد</string>
+    <string name="unit_module" formatted="true">%s پیمانه</string>
 </resources>

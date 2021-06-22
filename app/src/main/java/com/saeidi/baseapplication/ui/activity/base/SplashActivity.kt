@@ -12,10 +12,8 @@ import com.saeidi.baseapplication.storage.repository.local.LocalDatabase
 import com.saeidi.baseapplication.storage.repository.local.dao.CategoryDao
 import com.saeidi.baseapplication.storage.repository.local.dao.FoodDao
 import com.saeidi.baseapplication.storage.repository.local.dao.UserDao
-import com.saeidi.baseapplication.storage.repository.local.entity.CategoryModel
-import com.saeidi.baseapplication.storage.repository.local.entity.FoodModel
-import com.saeidi.baseapplication.storage.repository.local.entity.Material
-import com.saeidi.baseapplication.storage.repository.local.entity.UserModel
+import com.saeidi.baseapplication.storage.repository.local.entity.*
+import com.saeidi.baseapplication.storage.repository.local.entity.Unit
 import com.saeidi.baseapplication.utils.Fonts
 import com.saeidi.baseapplication.utils.Runtime
 import kotlinx.android.synthetic.main.splash_activity.*
@@ -227,16 +225,60 @@ class SplashActivity : BaseActivity() {
                     1,
                     getDummyCalorie(),
                     listOf("https://irancook.ir/wp-content/uploads/2019/09/%D8%AE%D9%88%D8%B1%D8%B4%D8%AA-%D8%A8%D8%A7%D8%AF%D9%85%D8%AC%D8%A7%D9%86-%D9%85%D8%AC%D9%84%D8%B3%DB%8C.jpg"),
-                    emptyList(),
+                    listOf(
+                        RecipeStep(
+                            1,
+                            "بادمجون ها رو پوست بگیرید بعد دو ساعت تو آب نمک خیس کنید بعد خشک کرده و سرخ کنید.\nاگه میخواهید مجلسی تر بشه میتونید به شکل زیر برش زده و سرخ کنید.",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-2.jpg"
+                        ),
+                        RecipeStep(
+                            2,
+                            "پیاز رو تفت بدید تا طلائی بشه",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-3.jpg"
+                        ),
+                        RecipeStep(
+                            3,
+                            "بعد گوشت رو بچینید روش",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-4.jpg"
+                        ),
+                        RecipeStep(
+                            4,
+                            "و گوشتها رو هم تفت بدید تا کمی سرخ بشن",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-5.jpg"
+                        ),
+                        RecipeStep(
+                            5,
+                            "آب رو با رب مخلوط کنید و بریزید رو گوشت",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-6.jpg"
+                        ),
+                        RecipeStep(
+                            6,
+                            "در ظرف رو ببنید همین که جوشید حرارت رو کم کنید تا گوشت پخته بشه حدود یک ونیم ساعت زمان میبره ( اگه گوشت گوساله باشه ) دراواخر پخت نمک رو اضافه کنید",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-7.jpg"
+                        ),
+                        RecipeStep(
+                            7,
+                            "وقتی گوشت پخته شد و حدود یک استکان آب تهش بود از رو گاز بردارید. بادمجونها رو بچینید ته ماهی تابه. گوشتها رو بزارید روش، آب گوشت رو با زعفران و آبغوره مخلوط کنید و بریزید رو خورشت، گوجه فرنگی ها رو هم نصف کرده و رو خورشت بچینید",
+                            "https://www.tasvirezendegi.com/wp-content/uploads/2016/01/Eggplant-Stew-8.jpg"
+                        ),
+                        RecipeStep(
+                            8,
+                            "حدو یک ربع روی حرارت متوسط قرار بدید تا آب خورشت کشیده شده و به روغن بیفته. خورشت خوشمزه ما آماده ست ، میتوانید آن را با نان یا برنج سرو کنید.",
+                            null
+                        ),
+                    ),
                     4,
                     listOf(
-                        Material("بادمجان", null, null),
-                        Material("پیاز", null, null),
-                        Material("رب گوجه فرنگی", null, null),
-                        Material("گوشت", null, null),
+                        Material("بادمجان", 500f, Unit.GRAM),
+                        Material("گوشت", 500f, Unit.GRAM),
+                        Material("گوجه فرنگی", 3f, Unit.PIECE),
+                        Material("پیاز", 1f, Unit.PIECE),
+                        Material("زعفران", null, null),
                         Material("نمک", null, null),
-                        Material("زردچوبه", null, null),
-                        Material("فلفل سیاه", null, null),
+                        Material("روغن", null, null),
+                        Material("رب گوجه فرنگی", 2f, Unit.SPOON),
+                        Material("آب", 4f, Unit.MODULE),
+                        Material("آبغوره", 0.5f, Unit.MODULE),
                     ),
                     180,
                     getDummyDate(),
