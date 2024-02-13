@@ -21,7 +21,6 @@
         android:background="@color/material_background"
         android:clipToPadding="false"
         android:maxWidth="400dp"
-        android:paddingTop="8dp"
         app:headerLayout="@layout/nav_header_root"
         app:itemIconTint="?android:textColor"
         app:menu="@menu/drawer">

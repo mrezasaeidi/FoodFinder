@@ -12,12 +12,20 @@ object Fonts {
         }
         val typeface = Typeface.createFromAsset(
             AndroidContext.context.assets,
-            "vazir$name.ttf"
+            "IRANYekanMobile$name.ttf"
         )
         if (typeface != null) {
             typefaces[name] = typeface
         }
         return typeface
+    }
+
+    fun extraBold(): Typeface? {
+        return load("ExtraBold")
+    }
+
+    fun extraBlack(): Typeface? {
+        return load("ExtraBlack")
     }
 
     fun bold(): Typeface {
@@ -33,7 +41,7 @@ object Fonts {
     }
 
     fun regular(): Typeface {
-        return load("")
+        return load("Regular")
     }
 
     fun light(): Typeface {
@@ -41,6 +49,6 @@ object Fonts {
     }
 
     fun thin(): Typeface {
-        return load( "Thin")
+        return load("Thin")
     }
 }

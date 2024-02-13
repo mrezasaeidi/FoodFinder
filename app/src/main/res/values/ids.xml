@@ -3,4 +3,5 @@
     <item name="backBtnContainer" type="id"/>
     <item name="content_frame" type="id"/>
     <item name="counter" type="id"/>
+    <item name="removeBtn" type="id"/>
 </resources>

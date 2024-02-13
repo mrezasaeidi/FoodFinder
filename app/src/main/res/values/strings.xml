@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Basalam</string>
+    <string name="app_name">ZardChoobeh</string>
     <string name="language">Language</string>
     <string name="font_size">Font Size</string>
     <string name="night_mode">Night Mode</string>
@@ -15,4 +15,35 @@
     <string name="dialog_select_lang_title">Select Language</string>
     <string name="farsi" translatable="false">فارسی</string>
     <string name="english" translatable="false">English</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="what_to_cook">What to cook</string>
+    <string name="what_to_cook_hint">Enter the available material so we can tell you what to cook :)</string>
+    <string name="recipes">Recipes</string>
+    <string name="profile">Profile</string>
+    <string name="food_select_material">Select Material</string>
+    <string name="food_select_time">Cooking Time</string>
+    <string name="food_select_calorie">Calorie</string>
+    <string name="find_food">Find Food</string>
+    <string name="material">Material</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="minute">Minute</string>
+    <string name="time_formatter" formatted="true">From %s Minutes To %s Minutes</string>
+    <string name="calorie">Calorie</string>
+    <string name="calorie_formatter" formatted="true">From %s Calorie To %s Calorie</string>
+    <string name="implement_in_future" formatted="true">This Section Will Be Implement In Future</string>
+    <string name="sort_new">The Newest</string>
+    <string name="sort_best_week">The Best Of The Week</string>
+    <string name="sort_best_user">The Best Of The Users</string>
+    <string name="search_empty_result">No Foods Found</string>
+    <string name="search_hint">Write Something To Find</string>
+    <string name="necessary_amount">To the extent necessary</string>
+    <string name="unit_gram" formatted="true">%s Gram</string>
+    <string name="unit_litre" formatted="true">%s Litre</string>
+    <string name="unit_spoon" formatted="true">%s Spoon</string>
+    <string name="unit_piece" formatted="true">%s Piece</string>
+    <string name="unit_module" formatted="true">%s Module</string>
 </resources>

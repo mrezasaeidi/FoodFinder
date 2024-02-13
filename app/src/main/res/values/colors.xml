@@ -5,12 +5,22 @@
     <color name="material_grey_dark">#c2c2c2</color>
     <color name="material_background">@color/material_grey_primary</color>
 
+    <color name="background_grey_with_night_support">#F4F7F6</color>
+
     <color name="material_night_primary">#1B2936</color>
+    <color name="material_night_dark">#15202b</color>
 
     <color name="material_night_dark_blue">#132029</color>
 
-    <color name="material_primary">#db3755</color>
+    <color name="material_primary">#F5BA14</color>
+    <color name="secondary_color">#F17600</color>
     <color name="grey_divider">#EAF0F6</color>
+
+    <color name="grey_dash">#E2E8EF</color>
+    <color name="dark_grey_dash">#92A2B2</color>
+    <color name="light_grey_dash">#8FA4B8</color>
+
+    <color name="dialog_overlay">#33000000</color>
 
 
     <!--Base Material Colors-->

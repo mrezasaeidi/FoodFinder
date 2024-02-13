@@ -2,6 +2,7 @@ package com.saeidi.baseapplication.utils
 
 import android.app.Activity
 import android.content.Context
+import android.view.ViewGroup.MarginLayoutParams
 import com.saeidi.baseapplication.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -32,6 +33,10 @@ object LayoutUtil {
         return lang
     }
 
+    fun isFa() = getLanguage() == Lang.FA
+
+    fun isEn() = getLanguage() == Lang.EN
+
     fun formatNumber(value: Int): String {
         return NumberFormatting.toLocale(value.toString(), locale)
     }
@@ -42,6 +47,33 @@ object LayoutUtil {
 
     fun recreate(activity: Activity) {
         activity.recreate()
+    }
+
+    fun getSelectableItemBackground(context: Context): Int {
+        val typedArray = context.obtainStyledAttributes(intArrayOf(R.attr.selectableItemBackground))
+        val selectableBackgroundResource = typedArray.getResourceId(0, 0)
+        typedArray.recycle()
+        return selectableBackgroundResource
+    }
+
+    fun getSelectableItemBackgroundBorderLess(context: Context): Int {
+        val typedArray =
+            context.obtainStyledAttributes(intArrayOf(R.attr.selectableItemBackgroundBorderless))
+        val selectableBackgroundBorderLessResource = typedArray.getResourceId(0, 0)
+        typedArray.recycle()
+        return selectableBackgroundBorderLessResource
+    }
+
+    fun setMargin(params: MarginLayoutParams, start: Int, top: Int, end: Int, bottom: Int) {
+        if (rtl) {
+            params.leftMargin = end
+            params.rightMargin = start
+        } else {
+            params.leftMargin = start
+            params.rightMargin = end
+        }
+        params.topMargin = top
+        params.bottomMargin = bottom
     }
 
     object NumberFormatting {

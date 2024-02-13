@@ -14,7 +14,13 @@ import com.google.android.material.navigation.NavigationView
 import com.saeidi.baseapplication.Application
 import com.saeidi.baseapplication.Constants
 import com.saeidi.baseapplication.R
-import com.saeidi.baseapplication.ui.fragment.RootFragment
+import com.saeidi.baseapplication.storage.repository.local.LocalDatabase
+import com.saeidi.baseapplication.ui.fragment.base.tab.SimpleTabAdapter
+import com.saeidi.baseapplication.ui.fragment.base.tab.Tab
+import com.saeidi.baseapplication.ui.fragment.base.tab.TabsFragment
+import com.saeidi.baseapplication.ui.fragment.root.*
+import com.saeidi.baseapplication.utils.Fonts
+import com.saeidi.baseapplication.utils.Intents
 import com.saeidi.baseapplication.utils.LayoutUtil
 import com.saeidi.baseapplication.utils.Style
 import kotlinx.android.synthetic.main.activity_root_layout.*
@@ -39,11 +45,27 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
 
         // Configure Toolbar
         if (toolbar != null) {
+            toolbarTitle.typeface = Fonts.bold()
             setSupportActionBar(toolbar)
         }
         supportActionBar?.elevation = 16f
+        val rootFragment =
+            TabsFragment.create(isBottom = true, isHorizontal = false)
+        rootFragment.setRootFragment(true)
+        val tabs = listOf(
+            Tab(getString(R.string.recipes), R.drawable.ic_recipe, RecipesFragment()),
+            Tab(getString(R.string.search), R.drawable.ic_search_cute, SearchFragment()),
+            Tab(
+                getString(R.string.what_to_cook),
+                R.drawable.ic_fast_food,
+                FoodDeterminationFragment()
+            ),
+            Tab(getString(R.string.profile), R.drawable.ic_profile, ProfileFragment())
+        )
+        val tabsAdapter = SimpleTabAdapter(supportFragmentManager, lifecycle, tabs)
+        rootFragment.setAdapter(tabsAdapter)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.root, RootFragment())
+            .replace(R.id.root, rootFragment)
             .commitNow()
 
         ActionBarDrawerToggle(
@@ -70,7 +92,12 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
             Style.inNightMode(this)
 
         navigationView.getHeaderView(0).apply {
-
+            nav_header_title.apply {
+                typeface = Fonts.bold()
+                setOnClickListener {
+                    startActivity(Intents.openLogin(this@RootActivity))
+                }
+            }
         }
 
         navMenu!!.findItem(R.id.nav_version).title =
@@ -92,7 +119,7 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
     }
 
     override fun onBackPressed() {
-        val rootFragment = supportFragmentManager.findFragmentById(R.id.root) as RootFragment?
+        val rootFragment = supportFragmentManager.findFragmentById(R.id.root) as TabsFragment?
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else if (rootFragment != null) {
@@ -204,6 +231,7 @@ class RootActivity : BaseFragmentActivity(), NavigationView.OnNavigationItemSele
     private fun clearCache() {
         GlobalScope.launch {
             getSharedPreferences(Constants.CONFIG_PREF_NAME, MODE_PRIVATE).edit().clear().apply()
+            LocalDatabase.getDatabase(this@RootActivity).deleteDatabase()
             Application.restart(applicationContext, 500)
         }
     }

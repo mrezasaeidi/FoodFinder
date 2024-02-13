@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/foodFragImageIV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="H,3:2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_chef" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/foodFragNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textSize="?attr/text_size_bold"
+            app:layout_constraintTop_toBottomOf="@id/foodFragImageIV"
+            tools:text="سالاد ماکارونی"
+            tools:textSize="@dimen/text_size_bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/foodFragCategoryTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/secondary_color"
+            android:textSize="?attr/text_size_ultralight"
+            app:layout_constraintTop_toBottomOf="@id/foodFragNameTV"
+            tools:text="#سالاد"
+            tools:textSize="@dimen/text_size_ultralight" />
+
+        <LinearLayout
+            android:id="@+id/horContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/foodFragCategoryTV">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodFragCommentTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:textSize="?attr/text_size_ultralight"
+                app:drawableEndCompat="@drawable/ic_comment_micro"
+                tools:text="10"
+                tools:textSize="@dimen/text_size_ultralight" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodFragLikeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:textSize="?attr/text_size_ultralight"
+                app:drawableEndCompat="@drawable/ic_like_micro"
+                tools:text="10"
+                tools:textSize="@dimen/text_size_ultralight" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodFragTimeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:textSize="?attr/text_size_ultralight"
+                app:drawableEndCompat="@drawable/ic_clock"
+                tools:text="10"
+                tools:textSize="@dimen/text_size_ultralight" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/_divider"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/grey_divider"
+            app:layout_constraintTop_toBottomOf="@id/horContainer" />
+
+        <LinearLayout
+            android:id="@+id/_material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/_divider">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:text="@string/material"
+                android:textColor="@color/secondary_color"
+                android:textSize="?attr/text_size_medium"
+                tools:textSize="@dimen/text_size_medium" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodFragCountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                app:drawableEndCompat="@drawable/ic_person"
+                tools:text="4" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foodFragMaterialRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/_material" />
+
+        <View
+            android:id="@+id/_divider2"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/grey_divider"
+            app:layout_constraintTop_toBottomOf="@id/foodFragMaterialRV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/_recipes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/recipes"
+            android:textColor="@color/secondary_color"
+            android:textSize="?attr/text_size_medium"
+            app:layout_constraintTop_toBottomOf="@id/_divider2"
+            tools:textSize="@dimen/text_size_medium" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foodFragRecipesRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/_recipes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

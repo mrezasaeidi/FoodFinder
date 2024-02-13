@@ -16,7 +16,7 @@ import com.saeidi.baseapplication.Constants.CONFIG_PREF_FONT_SIZE
 import com.saeidi.baseapplication.Constants.CONFIG_PREF_LANG
 import com.saeidi.baseapplication.Constants.CONFIG_PREF_NAME
 import com.saeidi.baseapplication.Constants.CONFIG_PREF_NIGHT_MODE
-import com.saeidi.baseapplication.ui.activity.base.RootActivity
+import com.saeidi.baseapplication.ui.activity.base.SplashActivity
 import com.saeidi.baseapplication.utils.LayoutUtil
 import com.saeidi.baseapplication.utils.Style
 import io.github.inflationx.calligraphy3.CalligraphyConfig
@@ -50,7 +50,7 @@ class Application : Application(), ActivityLifecycleCallbacks {
                 .addInterceptor(
                     CalligraphyInterceptor(
                         CalligraphyConfig.Builder()
-                            .setDefaultFontPath("vazir.ttf")
+                            .setDefaultFontPath("IRANYekanMobileRegular.ttf")
                             .setFontAttrId(R.attr.fontPath)
                             .build()
                     )
@@ -129,7 +129,7 @@ class Application : Application(), ActivityLifecycleCallbacks {
         }
 
         private fun restart(context: Context) {
-            val intentToBeNewRoot = Intent(context, RootActivity::class.java)
+            val intentToBeNewRoot = Intent(context, SplashActivity::class.java)
             val cn = intentToBeNewRoot.component
             val mainIntent = Intent.makeRestartActivityTask(cn)
             context.startActivity(mainIntent)

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="32dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/what_to_cook_hint"
+                android:textColor="@color/dark_grey_dash"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodSelectMaterialTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="16dp"
+                android:text="@string/food_select_material"
+                android:textSize="?attr/text_size_regular"
+                app:drawableEndCompat="@drawable/ic_diet"
+                tools:textSize="@dimen/text_size_regular" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/foodMaterialsContainerFB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
+                android:visibility="gone"
+                app:flexWrap="wrap"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodSelectTimeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="16dp"
+                android:text="@string/food_select_time"
+                android:textSize="?attr/text_size_regular"
+                app:drawableEndCompat="@drawable/ic_clock"
+                tools:textSize="@dimen/text_size_regular" />
+
+            <com.saeidi.baseapplication.ui.view.CardItem
+                android:id="@+id/foodSelectedTimeCI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/foodSelectCalorieTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="16dp"
+                android:text="@string/food_select_calorie"
+                android:textSize="?attr/text_size_regular"
+                app:drawableEndCompat="@drawable/ic_calorie"
+                tools:textSize="@dimen/text_size_regular" />
+
+            <com.saeidi.baseapplication.ui.view.CardItem
+                android:id="@+id/foodSelectedCalorieCI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/foodSearchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="?attr/selectableItemBackground"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/material_primary"
+            android:gravity="center"
+            android:text="@string/find_food"
+            android:textSize="?attr/text_size_medium"
+            tools:textSize="@dimen/text_size_medium" />
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,11 +1,23 @@
 package com.saeidi.baseapplication.utils
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
+import androidx.annotation.LayoutRes
 
 object ViewUtils {
+
+    fun inflate(@LayoutRes id: Int, viewGroup: ViewGroup): View {
+        return inflate(id, viewGroup, false)
+    }
+
+    fun inflate(@LayoutRes id: Int, viewGroup: ViewGroup, attach: Boolean): View {
+        return LayoutInflater.from(viewGroup.context).inflate(id, viewGroup, attach)
+    }
+
     fun goneView(view: View?) {
         goneView(view, true)
     }
